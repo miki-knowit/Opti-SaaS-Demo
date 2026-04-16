@@ -1,0 +1,21 @@
+/* ------------------------------------------------------- */
+/* Do not use the variables directly!                      */
+/* Use the variables in "color-theme-default.css" instead. */
+/* ------------------------------------------------------- */
+:root {
+  /* --- Color themes ----------------------- */
+  --palette-color-black-100: #0b0b26;
+  --palette-color-black-80: #3c3c52;
+  --palette-color-black-60: #6d6d7d;
+  --palette-color-black-40: #9d9da8;
+  --palette-color-black-transparent-80: rgba(11, 11, 38, 0.8);
+  --palette-color-black-transparent-50: rgba(11, 11, 38, 0.5);
+  --palette-color-white-120: #f8f3d3;
+  --palette-color-white-100: #fefbe6;
+  --palette-color-pink-100: #ffd6b8;
+  --palette-color-pink-80: #ffebdd;
+  --palette-color-blue-100: #372bc5;
+  --palette-color-blue-80: #cfceff;
+  --palette-color-blue-40: #f7f6ff;
+  --palette-color-green-100: #55d440;
+}

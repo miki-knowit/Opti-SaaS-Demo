@@ -1,0 +1,27 @@
+@use "@scss/mixins/layout-mixins" as *;
+
+@mixin clear-list {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  & > *,
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin horizontal-list($justify: center) {
+  @include clear-list;
+
+  & {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: center;
+  }
+}

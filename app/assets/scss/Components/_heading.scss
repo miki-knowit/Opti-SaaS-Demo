@@ -1,0 +1,35 @@
+@use "@scss/general/layout-variables" as *;
+@use "@scss/mixins/heading-mixins" as *;
+
+h1,
+h2,
+h3,
+h4,
+.heading {
+  overflow-wrap: break-word;
+
+  &--center {
+    text-align: center;
+  }
+}
+
+h1 {
+  font-family: var(--font-family-h1);
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+  font-weight: var(--font-weight-h1);
+  margin-top: var(--margin-top-h1);
+  margin-bottom: var(--margin-bottom-h1);
+}
+
+h2 {
+  @include h2-styled-heading;
+}
+
+h3 {
+  @include h3-styled-heading;
+}
+
+h4 {
+  @include h4-styled-heading;
+}

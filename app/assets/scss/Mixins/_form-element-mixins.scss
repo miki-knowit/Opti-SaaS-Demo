@@ -1,0 +1,97 @@
+﻿@use "@scss/mixins/layout-mixins" as *;
+@use "@scss/mixins/icon-mixins" as *;
+
+@mixin form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xs);
+}
+
+@mixin validation-message {
+  font-size: var(--font-size-xs);
+  line-height: 1.143;
+
+  &--error {
+    color: var(--theme-forms-validation-message-error-color);
+  }
+}
+
+@mixin input-text {
+  background-color: var(--theme-forms-input-text-background-color);
+  border: var(--border-small) solid var(--theme-forms-input-text-border-color);
+  height: 4.4rem;
+  padding: 0.3rem 1.4rem 0;
+  width: 100%;
+
+  &:enabled:hover,
+  &:focus-visible {
+    border-width: var(--border-medium);
+    padding: 0.3rem 1.3rem 0;
+  }
+}
+
+@mixin input-text-icon {
+  padding-right: 4.4rem;
+  background-repeat: no-repeat;
+  background-size: $icon-size-small $icon-size-small;
+  background-position: right 1.4rem center;
+}
+
+@mixin check-element {
+  margin: 0.2rem;
+  position: relative;
+
+  &__input {
+    background: var(--theme-forms-checkelement-input-background-color);
+    box-shadow: 0 0 0 var(--border-small)
+      var(--theme-forms-checkelement-input-box-shadow-color);
+    cursor: pointer;
+    display: block;
+    height: 2rem;
+    left: 0;
+    margin-top: -1rem;
+    position: absolute;
+    top: 50%;
+    width: 2rem;
+
+    &,
+    &::before,
+    &::after {
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    &:focus-visible {
+      left: var(--spacing-xs);
+
+      & + .radio-button__label,
+      & + .checkbox__label {
+        outline: var(--border-small) solid
+          var(--theme-forms-checkelement-input-focus-visible-outline-color);
+        padding-right: var(--spacing-xs);
+        padding-left: var(--spacing-medium);
+      }
+    }
+
+    &:disabled {
+      box-shadow: 0 0 0 var(--border-small)
+        var(--theme-forms-checkelement-input-disabled-box-shadow-color);
+      cursor: default;
+
+      & + .radio-button__label,
+      & + .checkbox__label {
+        color: var(--theme-forms-checkelement-input-disabled-labe-color);
+        cursor: default;
+      }
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+    display: inline-block;
+    padding: var(--spacing-xs) 0 0.7rem calc(var(--spacing-xs) + 0.6rem);
+    transition: padding 0.2s ease-in-out;
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+}

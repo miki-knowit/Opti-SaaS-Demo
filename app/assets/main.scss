@@ -1,0 +1,12 @@
+// Variables (_colors & _variables)
+@use "@scssRoot/variables";
+
+// General
+@use "@scss/general/base";
+@use "@scss/general/typography";
+
+// General components
+@use "@scss/components/section";
+@use "@scss/components/button";
+@use "@scss/components/heading";
+@use "@scss/components/image-and-text-block";
