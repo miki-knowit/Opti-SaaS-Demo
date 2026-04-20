@@ -1,72 +1,71 @@
 ﻿:root {
-  /* Spacing and layout */
-  --spacing-xxxs: 0.4rem; /* 4px */
-  --spacing-xxs: 0.8rem; /* 8px */
-  --spacing-xs: 1.6rem; /* 16px */
-  --spacing-small: 2.4rem; /* 24px */
-  --spacing-medium: 3.2rem; /* 32px */
-  --spacing-large: 4rem; /* 40px */
-  --spacing-xl: 4.8rem; /* 48px */
-  --spacing-xxl: 7.2rem; /* 72px */
-  --spacing-xxxl: 12rem; /* 120px */
+    /* Spacing and layout */
+    --spacing-xxxs: 0.4rem; /* 4px */
+    --spacing-xxs: 0.8rem; /* 8px */
+    --spacing-xs: 1.6rem; /* 16px */
+    --spacing-small: 2.4rem; /* 24px */
+    --spacing-medium: 3.2rem; /* 32px */
+    --spacing-large: 4rem; /* 40px */
+    --spacing-xl: 4.8rem; /* 48px */
+    --spacing-xxl: 7.2rem; /* 72px */
+    --spacing-xxxl: 12rem; /* 120px */
 
-  /* Content max widths */
-  --max-width-container: 126rem; /* 1260px */
-  --max-width-content: 72rem; /* 720px */
-  --max-width-box: 64rem; /* 640px */
+    /* Content max widths */
+    --max-width-container: 126rem; /* 1260px */
+    --max-width-content: 72rem; /* 720px */
+    --max-width-box: 64rem; /* 640px */
 
-  /* Borders */
-  --border-xs: 0.1rem; /* 1px */
-  --border-small: 0.2rem; /* 2px */
-  --border-medium: 0.3rem; /* 3px */
-  --border-large: 0.5rem; /* 5px */
-  --border-xl: 0.7rem; /* 7px */
+    /* Borders */
+    --border-xs: 0.1rem; /* 1px */
+    --border-small: 0.2rem; /* 2px */
+    --border-medium: 0.3rem; /* 3px */
+    --border-large: 0.5rem; /* 5px */
+    --border-xl: 0.7rem; /* 7px */
 
-  /* Border radius
+    /* Border radius
      -----------------------------------------
      Mixin for rounding corners with half
      of the elements height can be found in
      /scss/mixins/_general-mixins.scss
   */
-  --border-radius-xxxs: 0.4rem; /* 4px */
-  --border-radius-xxs: 0.8rem; /* 8px */
-  --border-radius-xs: 1.6rem; /* 16px */
-  --border-radius-small: 2.4rem; /* 24px */
-  --border-radius-medium: 3.2rem; /* 32px */
-  --border-radius-large: 4rem; /* 40px */
-  --border-radius-xl: 4.8rem; /* 48px */
-  --border-radius-xxl: 7.2rem; /* 72px */
-  --border-radius-xxxl: 12rem; /* 120px */
-  --border-radius-round: 50%;
+    --border-radius-xxxs: 0.4rem; /* 4px */
+    --border-radius-xxs: 0.8rem; /* 8px */
+    --border-radius-xs: 1.6rem; /* 16px */
+    --border-radius-small: 2.4rem; /* 24px */
+    --border-radius-medium: 3.2rem; /* 32px */
+    --border-radius-large: 4rem; /* 40px */
+    --border-radius-xl: 4.8rem; /* 48px */
+    --border-radius-xxl: 7.2rem; /* 72px */
+    --border-radius-xxxl: 12rem; /* 120px */
+    --border-radius-round: 50%;
 
-  /* Transitions */
-  --transition-timing: 0.2s;
-  --transition-easing: cubic-bezier(0.82, 0.65, 0.33, 0.86);
-  --transition-base: all var(--transition-timing) var(--transition-easing);
-  --transition-padding: padding var(--transition-timing)
-    var(--transition-easing);
-  --transition-left: left var(--transition-timing) var(--transition-easing);
-  --transition-width: width var(--transition-timing) var(--transition-easing);
-  --transition-zoom: transform var(--transition-timing) var(--transition-easing);
+    /* Transitions */
+    --transition-timing: 0.2s;
+    --transition-easing: cubic-bezier(0.82, 0.65, 0.33, 0.86);
+    --transition-base: all var(--transition-timing) var(--transition-easing);
+    --transition-padding: padding var(--transition-timing) var(--transition-easing);
+    --transition-left: left var(--transition-timing) var(--transition-easing);
+    --transition-width: width var(--transition-timing) var(--transition-easing);
+    --transition-zoom: transform var(--transition-timing) var(--transition-easing);
 
-  /* Disturbance */
-  --disturbance-height: 0rem;
+    /* Disturbance */
+    --disturbance-height: 0rem;
 
-  /* Header */
-  --header-height-mobile: 80px;
-  --header-height-desktop: 150px;
-  --header-logo-height-mobile: 48px;
-  --header-logo-height-desktop: 80px;
+    /* Header */
+    --header-height-mobile: 80px;
+    --header-height-desktop: 150px;
+    --header-logo-height-mobile: 48px;
+    --header-logo-height-desktop: 80px;
 
-  /* Page header */
-  --start-page-page-header-padding-top-desktop: 16rem;
+    /* Page header */
+    --start-page-page-header-padding-top-desktop: 16rem;
 
-  /* Images */
-  --fixed-image-height-xs: 24rem;
-  --fixed-image-height-sm: 32rem;
-  --fixed-image-height-md: 44rem;
-  --fixed-image-height-lg: 52rem;
+    /* Images */
+    --fixed-image-height-xs: 24rem;
+    --fixed-image-height-sm: 32rem;
+    --fixed-image-height-md: 44rem;
+    --fixed-image-height-lg: 52rem;
 
-  /* Box shadow */
-  --box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
+    /* Box shadow */
+    --box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
 }

@@ -1,28 +1,28 @@
 @mixin border-radius-half-height($element-height) {
-  border-radius: calc($element-height / 2);
+    border-radius: calc($element-height / 2);
 }
 
 @mixin full-screen-modal {
-  overscroll-behavior: contain;
-  pointer-events: auto;
-  touch-action: auto;
+    overscroll-behavior: contain;
+    pointer-events: auto;
+    touch-action: auto;
 }
 
 @mixin sr-only {
-  &:not(:focus):not(:active) {
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
+    &:not(:focus):not(:active) {
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
 }
 
 @mixin focus-frame($outline-color: var(--theme-focus-frame-outline-color)) {
-  outline: var(--border-small) solid $outline-color;
-  outline-offset: var(--border-small);
+    outline: var(--border-small) solid $outline-color;
+    outline-offset: var(--border-small);
 }

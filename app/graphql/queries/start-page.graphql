@@ -1,43 +1,45 @@
 query StartPageQuery {
-  StartPage {
-    items {
-      HeadingProp
-      TextProp {
-        html
-      }
-      ContentAreaProp {
-        __typename
-        ... on SectionBlock {
-          HeadingProp
-          ContentAreaProp {
-            __typename
-            ... on TextImageBlock {
-              HeadingProp
-              TextBlock {
-                TextProp {
-                  html
-                }
-              }
-              ImageBlock {
-                HeadingProp
-                ImageProp {
-                  url {
-                    default
-                  }
-                }
-              }
+    StartPage {
+        items {
+            HeadingProp
+            TextProp {
+                html
             }
-          }
-        }
-        ... on ImageBlock {
-          HeadingProp
-          ImageProp {
-            url {
-              default
+            ContentAreaProp {
+                __typename
+                ... on SectionBlock {
+                    HeadingProp
+                    ContentAreaProp {
+                        __typename
+                        ... on TextImageBlock {
+                            HeadingProp
+                            TextBlock {
+                                TextProp {
+                                    html
+                                }
+                            }
+                            ImageBlock {
+                                HeadingProp
+                                ImageProp {
+                                    url {
+                                        default
+                                    }
+                                }
+                                PlaceImageRight
+                            }
+                        }
+                    }
+                }
+                ... on ImageBlock {
+                    HeadingProp
+                    ImageProp {
+                        url {
+                            default
+                        }
+                    }
+                    PlaceImageRight
+                }
             }
-          }
         }
-      }
     }
-  }
 }

@@ -1347,6 +1347,7 @@ export type ImageBlock = IData & _IComponent & _IContent & _IItem & {
   __typename?: 'ImageBlock';
   HeadingProp?: Maybe<Scalars['String']['output']>;
   ImageProp?: Maybe<ContentReference>;
+  PlaceImageRight?: Maybe<Scalars['Boolean']['output']>;
   /** @deprecated Use `_link` field instead */
   _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
@@ -1415,6 +1416,7 @@ export type ImageBlockProperty = {
   __typename?: 'ImageBlockProperty';
   HeadingProp?: Maybe<Scalars['String']['output']>;
   ImageProp?: Maybe<ContentReference>;
+  PlaceImageRight?: Maybe<Scalars['Boolean']['output']>;
 };
 
 export type ImageBlockPropertyAutocomplete = {
@@ -1758,7 +1760,7 @@ export type QueryBlankExperienceArgs = {
   orderBy?: InputMaybe<BlankExperienceOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<BlankExperienceWhereInput>;
 };
@@ -1772,7 +1774,7 @@ export type QueryBlankSectionArgs = {
   orderBy?: InputMaybe<BlankSectionOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<BlankSectionWhereInput>;
 };
@@ -1786,7 +1788,7 @@ export type QueryDataArgs = {
   orderBy?: InputMaybe<DataOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<DataWhereInput>;
 };
@@ -1800,7 +1802,7 @@ export type QueryGenericMediaArgs = {
   orderBy?: InputMaybe<GenericMediaOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<GenericMediaWhereInput>;
 };
@@ -1814,7 +1816,7 @@ export type QueryImageBlockArgs = {
   orderBy?: InputMaybe<ImageBlockOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<ImageBlockWhereInput>;
 };
@@ -1828,7 +1830,7 @@ export type QueryImageMediaArgs = {
   orderBy?: InputMaybe<ImageMediaOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<ImageMediaWhereInput>;
 };
@@ -1842,7 +1844,7 @@ export type QuerySectionBlockArgs = {
   orderBy?: InputMaybe<SectionBlockOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<SectionBlockWhereInput>;
 };
@@ -1856,7 +1858,7 @@ export type QueryStartPageArgs = {
   orderBy?: InputMaybe<StartPageOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<StartPageWhereInput>;
 };
@@ -1870,7 +1872,7 @@ export type QuerySysContentFolderArgs = {
   orderBy?: InputMaybe<SysContentFolderOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<SysContentFolderWhereInput>;
 };
@@ -1884,7 +1886,7 @@ export type QueryTextBlockArgs = {
   orderBy?: InputMaybe<TextBlockOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<TextBlockWhereInput>;
 };
@@ -1898,7 +1900,7 @@ export type QueryTextImageBlockArgs = {
   orderBy?: InputMaybe<TextImageBlockOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<TextImageBlockWhereInput>;
 };
@@ -1912,7 +1914,7 @@ export type QueryVideoMediaArgs = {
   orderBy?: InputMaybe<VideoMediaOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<VideoMediaWhereInput>;
 };
@@ -1926,7 +1928,7 @@ export type Query_AssetItemArgs = {
   orderBy?: InputMaybe<_AssetItemOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_AssetItemWhereInput>;
 };
@@ -1940,7 +1942,7 @@ export type Query_ComponentArgs = {
   orderBy?: InputMaybe<_ComponentOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ComponentWhereInput>;
 };
@@ -1954,7 +1956,7 @@ export type Query_ContentArgs = {
   orderBy?: InputMaybe<_ContentOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ContentWhereInput>;
 };
@@ -1968,7 +1970,7 @@ export type Query_ExperienceArgs = {
   orderBy?: InputMaybe<_ExperienceOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ExperienceWhereInput>;
 };
@@ -1982,7 +1984,7 @@ export type Query_FolderArgs = {
   orderBy?: InputMaybe<_FolderOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_FolderWhereInput>;
 };
@@ -1996,7 +1998,7 @@ export type Query_ImageArgs = {
   orderBy?: InputMaybe<_ImageOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ImageWhereInput>;
 };
@@ -2010,7 +2012,7 @@ export type Query_ImageItemArgs = {
   orderBy?: InputMaybe<_ImageItemOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ImageItemWhereInput>;
 };
@@ -2024,7 +2026,7 @@ export type Query_ItemArgs = {
   orderBy?: InputMaybe<_ItemOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ItemWhereInput>;
 };
@@ -2038,7 +2040,7 @@ export type Query_MediaArgs = {
   orderBy?: InputMaybe<_MediaOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_MediaWhereInput>;
 };
@@ -2052,7 +2054,7 @@ export type Query_PageArgs = {
   orderBy?: InputMaybe<_PageOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_PageWhereInput>;
 };
@@ -2066,7 +2068,7 @@ export type Query_SectionArgs = {
   orderBy?: InputMaybe<_SectionOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_SectionWhereInput>;
 };
@@ -2080,7 +2082,7 @@ export type Query_VideoArgs = {
   orderBy?: InputMaybe<_VideoOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_VideoWhereInput>;
 };
@@ -2122,7 +2124,7 @@ export type QueryRefBlankExperienceArgs = {
   orderBy?: InputMaybe<BlankExperienceOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<BlankExperienceWhereInput>;
 };
@@ -2136,7 +2138,7 @@ export type QueryRefBlankSectionArgs = {
   orderBy?: InputMaybe<BlankSectionOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<BlankSectionWhereInput>;
 };
@@ -2150,7 +2152,7 @@ export type QueryRefDataArgs = {
   orderBy?: InputMaybe<DataOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<DataWhereInput>;
 };
@@ -2164,7 +2166,7 @@ export type QueryRefGenericMediaArgs = {
   orderBy?: InputMaybe<GenericMediaOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<GenericMediaWhereInput>;
 };
@@ -2178,7 +2180,7 @@ export type QueryRefImageBlockArgs = {
   orderBy?: InputMaybe<ImageBlockOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<ImageBlockWhereInput>;
 };
@@ -2192,7 +2194,7 @@ export type QueryRefImageMediaArgs = {
   orderBy?: InputMaybe<ImageMediaOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<ImageMediaWhereInput>;
 };
@@ -2206,7 +2208,7 @@ export type QueryRefSectionBlockArgs = {
   orderBy?: InputMaybe<SectionBlockOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<SectionBlockWhereInput>;
 };
@@ -2220,7 +2222,7 @@ export type QueryRefStartPageArgs = {
   orderBy?: InputMaybe<StartPageOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<StartPageWhereInput>;
 };
@@ -2234,7 +2236,7 @@ export type QueryRefSysContentFolderArgs = {
   orderBy?: InputMaybe<SysContentFolderOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<SysContentFolderWhereInput>;
 };
@@ -2248,7 +2250,7 @@ export type QueryRefTextBlockArgs = {
   orderBy?: InputMaybe<TextBlockOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<TextBlockWhereInput>;
 };
@@ -2262,7 +2264,7 @@ export type QueryRefTextImageBlockArgs = {
   orderBy?: InputMaybe<TextImageBlockOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<TextImageBlockWhereInput>;
 };
@@ -2276,7 +2278,7 @@ export type QueryRefVideoMediaArgs = {
   orderBy?: InputMaybe<VideoMediaOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<VideoMediaWhereInput>;
 };
@@ -2290,7 +2292,7 @@ export type QueryRef_AssetItemArgs = {
   orderBy?: InputMaybe<_AssetItemOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_AssetItemWhereInput>;
 };
@@ -2304,7 +2306,7 @@ export type QueryRef_ComponentArgs = {
   orderBy?: InputMaybe<_ComponentOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ComponentWhereInput>;
 };
@@ -2318,7 +2320,7 @@ export type QueryRef_ContentArgs = {
   orderBy?: InputMaybe<_ContentOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ContentWhereInput>;
 };
@@ -2332,7 +2334,7 @@ export type QueryRef_ExperienceArgs = {
   orderBy?: InputMaybe<_ExperienceOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ExperienceWhereInput>;
 };
@@ -2346,7 +2348,7 @@ export type QueryRef_FolderArgs = {
   orderBy?: InputMaybe<_FolderOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_FolderWhereInput>;
 };
@@ -2360,7 +2362,7 @@ export type QueryRef_ImageArgs = {
   orderBy?: InputMaybe<_ImageOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ImageWhereInput>;
 };
@@ -2374,7 +2376,7 @@ export type QueryRef_ImageItemArgs = {
   orderBy?: InputMaybe<_ImageItemOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ImageItemWhereInput>;
 };
@@ -2388,7 +2390,7 @@ export type QueryRef_ItemArgs = {
   orderBy?: InputMaybe<_ItemOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_ItemWhereInput>;
 };
@@ -2402,7 +2404,7 @@ export type QueryRef_MediaArgs = {
   orderBy?: InputMaybe<_MediaOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_MediaWhereInput>;
 };
@@ -2416,7 +2418,7 @@ export type QueryRef_PageArgs = {
   orderBy?: InputMaybe<_PageOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_PageWhereInput>;
 };
@@ -2430,7 +2432,7 @@ export type QueryRef_SectionArgs = {
   orderBy?: InputMaybe<_SectionOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_SectionWhereInput>;
 };
@@ -2444,7 +2446,7 @@ export type QueryRef_VideoArgs = {
   orderBy?: InputMaybe<_VideoOrderByInput>;
   pinned?: InputMaybe<PinnedInput>;
   skip?: Scalars['Int']['input'];
-  track?: InputMaybe<Scalars['String']['input']>;
+  tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<_VideoWhereInput>;
 };
@@ -2983,6 +2985,13 @@ export type TextImageBlockWhereInput = {
   _modified?: InputMaybe<DateFilterInput>;
   _not?: InputMaybe<Array<InputMaybe<TextImageBlockWhereInput>>>;
   _or?: InputMaybe<Array<InputMaybe<TextImageBlockWhereInput>>>;
+};
+
+export type TrackingInput = {
+  /** Search phrase to track */
+  phrase: Scalars['String']['input'];
+  /** Source of the search query (optional) */
+  source?: InputMaybe<Scalars['String']['input']>;
 };
 
 export enum VariationIncludeMode {
@@ -4552,7 +4561,7 @@ export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typena
         | { __typename: 'BlankExperience' }
         | { __typename: 'BlankSection' }
         | { __typename: 'GenericMedia' }
-        | { __typename: 'ImageBlock', HeadingProp?: string | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null }
+        | { __typename: 'ImageBlock', HeadingProp?: string | null, PlaceImageRight?: boolean | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null }
         | { __typename: 'ImageMedia' }
         | { __typename: 'SectionBlock', HeadingProp?: string | null, ContentAreaProp?: Array<
             | { __typename: 'BlankExperience' }
@@ -4564,7 +4573,7 @@ export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typena
             | { __typename: 'StartPage' }
             | { __typename: 'SysContentFolder' }
             | { __typename: 'TextBlock' }
-            | { __typename: 'TextImageBlock', HeadingProp?: string | null, TextBlock?: { __typename?: 'TextBlockProperty', TextProp?: { __typename?: 'RichText', html?: string | null } | null } | null, ImageBlock?: { __typename?: 'ImageBlockProperty', HeadingProp?: string | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null } | null }
+            | { __typename: 'TextImageBlock', HeadingProp?: string | null, TextBlock?: { __typename?: 'TextBlockProperty', TextProp?: { __typename?: 'RichText', html?: string | null } | null } | null, ImageBlock?: { __typename?: 'ImageBlockProperty', HeadingProp?: string | null, PlaceImageRight?: boolean | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null } | null }
             | { __typename: 'VideoMedia' }
             | { __typename: '_Component' }
             | { __typename: '_Content' }
@@ -4593,4 +4602,4 @@ export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typena
        | null> | null } | null> | null } | null };
 
 
-export const StartPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StartPageQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"StartPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SectionBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StartPageQueryQuery, StartPageQueryQueryVariables>;
+export const StartPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StartPageQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"StartPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SectionBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StartPageQueryQuery, StartPageQueryQueryVariables>;
