@@ -39,6 +39,11 @@ query StartPageQuery {
                     }
                     PlaceImageRight
                 }
+                ... on TextBlock {
+                    TextProp {
+                        html
+                    }
+                }
             }
         }
     }

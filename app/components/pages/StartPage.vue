@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { ImageBlockItem, SectionBlockItem, StartPageData } from '~/graphql/start-page.types';
+import type { ImageBlockItem, SectionBlockItem, TextBlockItem, StartPageData } from '~/graphql/start-page.types';
 import SectionBlock from '../blocks/SectionBlock.vue';
 import ImageBlock from '../blocks/ImageBlock.vue';
+import TextBlock from "~/components/blocks/TextBlock.vue";
 
 const { data, status, error } = await useFetch<StartPageData>('/api/start-page');
 
@@ -22,6 +23,10 @@ const sectionBlocks = computed(() =>
 );
 const imageBlocks = computed(() =>
     contentArea.value.filter((item): item is ImageBlockItem => item?.__typename === 'ImageBlock'),
+);
+
+const textBlocks = computed(() =>
+    contentArea.value.filter((item): item is TextBlockItem => item?.__typename === 'TextBlock'),
 );
 </script>
 
@@ -47,6 +52,12 @@ const imageBlocks = computed(() =>
             :key="`image-${index}`"
             :image-block="item"
         />
+
+      <TextBlock
+          v-for="(item, index) in textBlocks"
+          :key="`text-${index}`"
+          :text-block="item"
+      />
     </div>
 </template>
 

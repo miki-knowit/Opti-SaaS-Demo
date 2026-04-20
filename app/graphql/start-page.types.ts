@@ -14,3 +14,4 @@ export type ContentAreaItem = NonNullable<NonNullable<StartPageItem['ContentArea
 
 export type SectionBlockItem = Extract<ContentAreaItem, { __typename: 'SectionBlock' }>;
 export type ImageBlockItem = Extract<ContentAreaItem, { __typename: 'ImageBlock' }>;
+export type TextBlockItem = Extract<ContentAreaItem, { __typename: 'TextBlock' }>;

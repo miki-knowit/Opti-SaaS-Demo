@@ -186,6 +186,88 @@ export type BlankSectionWhereInput = {
   composition?: InputMaybe<CompositionStructureNodeWhereInput>;
 };
 
+export type CommonPage = IData & _IContent & _IItem & _IPage & {
+  __typename?: 'CommonPage';
+  MainContent?: Maybe<Array<Maybe<_IContent>>>;
+  PlainText?: Maybe<SearchableRichText>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _itemMetadata?: Maybe<_Metadata>;
+  _json?: Maybe<Scalars['JSON']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type CommonPage_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type CommonPage_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type CommonPageAutocomplete = {
+  __typename?: 'CommonPageAutocomplete';
+  MainContent?: Maybe<_IContentAutocomplete>;
+  _itemMetadata?: Maybe<_MetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type CommonPageFacet = {
+  __typename?: 'CommonPageFacet';
+  MainContent?: Maybe<_IContentFacet>;
+  PlainText?: Maybe<SearchableRichTextFacet>;
+  _itemMetadata?: Maybe<_MetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type CommonPageOrderByInput = {
+  MainContent?: InputMaybe<_IContentOrderByInput>;
+  PlainText?: InputMaybe<SearchableRichTextOrderByInput>;
+  _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type CommonPageOutput = {
+  __typename?: 'CommonPageOutput';
+  autocomplete?: Maybe<CommonPageAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<CommonPageFacet>;
+  item?: Maybe<CommonPage>;
+  items?: Maybe<Array<Maybe<CommonPage>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type CommonPageOutputTotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type CommonPageWhereInput = {
+  MainContent?: InputMaybe<_IContentWhereInput>;
+  PlainText?: InputMaybe<SearchableRichTextWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<CommonPageWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _itemMetadata?: InputMaybe<_MetadataWhereInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<CommonPageWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<CommonPageWhereInput>>>;
+};
+
 export type CompositionComponentNode = ICompositionComponentNode & ICompositionNode & {
   __typename?: 'CompositionComponentNode';
   component?: Maybe<_IComponent>;
@@ -1727,6 +1809,7 @@ export type Query = {
   __typename?: 'Query';
   BlankExperience?: Maybe<BlankExperienceOutput>;
   BlankSection?: Maybe<BlankSectionOutput>;
+  CommonPage?: Maybe<CommonPageOutput>;
   Data?: Maybe<DataOutput>;
   GenericMedia?: Maybe<GenericMediaOutput>;
   ImageBlock?: Maybe<ImageBlockOutput>;
@@ -1777,6 +1860,20 @@ export type QueryBlankSectionArgs = {
   tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<BlankSectionWhereInput>;
+};
+
+
+export type QueryCommonPageArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<CommonPageOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<CommonPageWhereInput>;
 };
 
 
@@ -2091,6 +2188,7 @@ export type QueryRef = {
   __typename?: 'QueryRef';
   BlankExperience?: Maybe<BlankExperienceOutput>;
   BlankSection?: Maybe<BlankSectionOutput>;
+  CommonPage?: Maybe<CommonPageOutput>;
   Data?: Maybe<DataOutput>;
   GenericMedia?: Maybe<GenericMediaOutput>;
   ImageBlock?: Maybe<ImageBlockOutput>;
@@ -2141,6 +2239,20 @@ export type QueryRefBlankSectionArgs = {
   tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<BlankSectionWhereInput>;
+};
+
+
+export type QueryRefCommonPageArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<CommonPageOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<CommonPageWhereInput>;
 };
 
 
@@ -2499,6 +2611,38 @@ export type RichTextOrderByInput = {
 
 export type RichTextWhereInput = {
   html?: InputMaybe<StringFilterInput>;
+};
+
+export type SearchableRichText = {
+  __typename?: 'SearchableRichText';
+  html?: Maybe<Scalars['String']['output']>;
+  json?: Maybe<Scalars['JSON']['output']>;
+};
+
+
+export type SearchableRichTextHtmlArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+export type SearchableRichTextFacet = {
+  __typename?: 'SearchableRichTextFacet';
+  html?: Maybe<Array<Maybe<StringFacet>>>;
+};
+
+
+export type SearchableRichTextFacetHtmlArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type SearchableRichTextOrderByInput = {
+  html?: InputMaybe<OrderBy>;
+};
+
+export type SearchableRichTextWhereInput = {
+  html?: InputMaybe<SearchableStringFilterInput>;
 };
 
 export type SearchableStringFilterInput = {
@@ -4560,12 +4704,14 @@ export type StartPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typename?: 'StartPageOutput', items?: Array<{ __typename?: 'StartPage', HeadingProp?: string | null, TextProp?: { __typename?: 'RichText', html?: string | null } | null, ContentAreaProp?: Array<
         | { __typename: 'BlankExperience' }
         | { __typename: 'BlankSection' }
+        | { __typename: 'CommonPage' }
         | { __typename: 'GenericMedia' }
         | { __typename: 'ImageBlock', HeadingProp?: string | null, PlaceImageRight?: boolean | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null }
         | { __typename: 'ImageMedia' }
         | { __typename: 'SectionBlock', HeadingProp?: string | null, ContentAreaProp?: Array<
             | { __typename: 'BlankExperience' }
             | { __typename: 'BlankSection' }
+            | { __typename: 'CommonPage' }
             | { __typename: 'GenericMedia' }
             | { __typename: 'ImageBlock' }
             | { __typename: 'ImageMedia' }
@@ -4587,7 +4733,7 @@ export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typena
            | null> | null }
         | { __typename: 'StartPage' }
         | { __typename: 'SysContentFolder' }
-        | { __typename: 'TextBlock' }
+        | { __typename: 'TextBlock', TextProp?: { __typename?: 'RichText', html?: string | null } | null }
         | { __typename: 'TextImageBlock' }
         | { __typename: 'VideoMedia' }
         | { __typename: '_Component' }
@@ -4602,4 +4748,4 @@ export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typena
        | null> | null } | null> | null } | null };
 
 
-export const StartPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StartPageQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"StartPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SectionBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StartPageQueryQuery, StartPageQueryQueryVariables>;
+export const StartPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StartPageQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"StartPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SectionBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StartPageQueryQuery, StartPageQueryQueryVariables>;
