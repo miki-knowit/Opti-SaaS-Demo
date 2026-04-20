@@ -1,0 +1,9 @@
+@use "@scss/mixins/form-element-mixins" as *;
+
+.file-upload {
+  @include form-group;
+
+  &__input {
+    margin-top: var(--spacing-xs);
+  }
+}

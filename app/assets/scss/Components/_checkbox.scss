@@ -1,0 +1,39 @@
+﻿@use "@scss/mixins/form-element-mixins" as *;
+@use "@scss/mixins/icon-mixins" as *;
+@use "@scss/mixins/layout-mixins" as *;
+
+.checkbox-group {
+  @include form-group;
+
+  .checkbox {
+    margin-bottom: 0;
+  }
+}
+
+.checkbox {
+  @include check-element;
+
+  & {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  /*Note: used as script selector*/
+  &__input {
+    &:hover {
+      background-color: var(--theme-checkbox-input-hover-background-color);
+    }
+
+    &:disabled:hover {
+      background-color: var(--theme-checkbox-input-disabled-hover-background-color);
+    }
+
+    &::before {
+      @include icon($icon-size-small, $color: transparent, $image: url("@images/icons/icon-checkmark.svg"));
+      @include center-absolute($icon-size-small, $icon-size-small);
+    }
+
+    &:checked::before {
+      background: var(--theme-checkbox-input);
+    }
+  }
+}
