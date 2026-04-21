@@ -10,6 +10,7 @@ import SectionBlock from '../blocks/SectionBlock.vue';
 import ImageBlock from '../blocks/ImageBlock.vue';
 import TextBlock from '../blocks/TextBlock.vue';
 import HeaderBlock from '../blocks/HeaderBlock.vue';
+import FooterBlock from '../blocks/FooterBlock.vue';
 
 const { data, status, error } = await useFetch<StartPageData>('/api/start-page');
 
@@ -19,6 +20,7 @@ const startPage = computed(() => data.value?.StartPage?.items?.[0] ?? null);
 const hasStartPage = computed(() => !!startPage.value);
 
 const headerBlock = computed(() => startPage.value?.HeaderBlock ?? null);
+const footerBlock = computed(() => startPage.value?.FooterBlock ?? null);
 
 const startPageBody = computed(() => startPage.value?.TextProp?.html || '');
 const contentArea = computed(() => startPage.value?.ContentAreaProp ?? []);
@@ -43,7 +45,6 @@ const textBlocks = computed(() =>
         <div v-if="status === 'pending' && !hasStartPage">Loading start page content...</div>
         <div v-else-if="error && !hasStartPage">Failed to load start page content.</div>
         <section class="start-page__header">
-            <img class="start-page__header-icon" src="/icon.svg" alt="Knowit Experience logo" />
             <HeaderBlock v-if="headerBlock" :header-block="headerBlock" />
         </section>
 
@@ -64,13 +65,7 @@ const textBlocks = computed(() =>
         />
 
         <TextBlock v-for="(item, index) in textBlocks" :key="`text-${index}`" :text-block="item" />
+
+        <FooterBlock v-if="footerBlock" :footer-block="footerBlock" />
     </div>
 </template>
-
-<style scoped>
-img.start-page__header-icon {
-  width: 40px;
-  height: 40px;
-  display: block;
-}
-</style>

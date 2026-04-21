@@ -47,6 +47,20 @@ query StartPageQuery {
                     }
                 }
             }
+            FooterBlock {
+                ContactHeading
+                Email
+                Phone
+                Address
+                Links {
+                    text
+                    title
+                    target
+                    url {
+                        default
+                    }
+                }
+            }
         }
     }
 }

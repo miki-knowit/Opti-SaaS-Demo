@@ -14,8 +14,8 @@ defineProps<{
 <template>
     <header class="header">
         <div class="header__container">
-            <figure v-if="headerBlock.ImageBlock?.ImageProp?.url?.default" class="header__logo">
-                <img :src="headerBlock.ImageBlock.ImageProp.url.default" alt="" />
+            <figure class="header__logo">
+                <img src="/icon.svg" alt="Knowit Experience logo" />
             </figure>
 
             <div class="header__text">
@@ -30,10 +30,3 @@ defineProps<{
         </div>
     </header>
 </template>
-
-<style scoped>
-.header__text {
-    display: flex;
-    flex-direction: column;
-}
-</style>
