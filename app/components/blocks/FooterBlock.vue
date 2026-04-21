@@ -1,21 +1,21 @@
 <script setup lang="ts">
 defineProps<{
-  footerBlock: {
-    __typename?: 'FooterBlock';
-    ContactHeading?: string | null;
-    Email?: string | null;
-    Phone?: string | null;
-    Address?: string | null;
-    Links?: Array<{
-      __typename?: 'Link';
-      text?: string | null;
-      target?: string | null;
-      title?: string | null;
-      url?: {
-        default?: string | null;
-      } | null;
-    } | null> | null;
-  } | null;
+    footerBlock: {
+        __typename?: 'FooterBlock';
+        ContactHeading?: string | null;
+        Email?: string | null;
+        Phone?: string | null;
+        Address?: string | null;
+        Links?: Array<{
+            __typename?: 'Link';
+            text?: string | null;
+            target?: string | null;
+            title?: string | null;
+            url?: {
+                default?: string | null;
+            } | null;
+        } | null> | null;
+    } | null;
 }>();
 </script>
 

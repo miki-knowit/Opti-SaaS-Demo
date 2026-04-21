@@ -13,7 +13,6 @@ query StartPageQuery {
                             default
                         }
                     }
-                    PlaceImageRight
                 }
             }
             ContentAreaProp {
@@ -36,8 +35,8 @@ query StartPageQuery {
                                         default
                                     }
                                 }
-                                PlaceImageRight
                             }
+                            PlaceImageRight
                         }
                     }
                 }

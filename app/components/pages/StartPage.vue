@@ -25,7 +25,7 @@ const footerBlock = computed(() => startPage.value?.FooterBlock ?? null);
 const startPageBody = computed(() => startPage.value?.TextProp?.html || '');
 const contentArea = computed(() => startPage.value?.ContentAreaProp ?? []);
 
-// Filter and collect content blocks by type for rendering.
+// Filter and collect ContentArea blocks by type for rendering.
 const sectionBlocks = computed(() =>
     contentArea.value.filter(
         (item): item is SectionBlockItem => item?.__typename === 'SectionBlock',
@@ -44,13 +44,15 @@ const textBlocks = computed(() =>
     <div class="start-page">
         <div v-if="status === 'pending' && !hasStartPage">Loading start page content...</div>
         <div v-else-if="error && !hasStartPage">Failed to load start page content.</div>
-        <section class="start-page__header">
-            <HeaderBlock v-if="headerBlock" :header-block="headerBlock" />
-        </section>
+            
+      <HeaderBlock v-if="headerBlock"
+                   :header-block="headerBlock"
+      />
 
-        <section class="start-page__header">
+
+        <body>
             <div v-if="startPageBody" v-html="startPageBody" />
-        </section>
+        </body>
 
         <SectionBlock
             v-for="(item, index) in sectionBlocks"
@@ -64,8 +66,14 @@ const textBlocks = computed(() =>
             :image-block="item"
         />
 
-        <TextBlock v-for="(item, index) in textBlocks" :key="`text-${index}`" :text-block="item" />
+        <TextBlock v-for="(item, index) in textBlocks"
+                   :key="`text-${index}`" 
+                   :text-block="item"
+        />
 
-        <FooterBlock v-if="footerBlock" :footer-block="footerBlock" />
+        <FooterBlock v-if="footerBlock"
+                     :footer-block="footerBlock"
+        />
+      
     </div>
 </template>
