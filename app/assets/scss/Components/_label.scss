@@ -1,10 +1,10 @@
-@use "@scss/mixins/icon-mixins" as *;
+@use '@scss/mixins/icon-mixins' as *;
 
 .form-label {
     display: flex;
     align-items: center;
     font-weight: var(--font-weight-bold);
-    margin-bottom: calc(var(--spacing-xs)/2);
+    margin-bottom: calc(var(--spacing-xs) / 2);
 
     &__icon {
         display: inline-block;
@@ -13,7 +13,7 @@
         height: $icon-size-medium;
 
         &--info {
-            background: transparent url("@images/icons/icon-newspaper.svg") no-repeat;
+            background: transparent url('@images/icons/icon-newspaper.svg') no-repeat;
             background-size: $icon-size-medium;
         }
     }

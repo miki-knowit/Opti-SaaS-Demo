@@ -1,101 +1,100 @@
-@use "@scss/mixins/icon-mixins" as *;
+@use '@scss/mixins/icon-mixins' as *;
 
 ol,
 ul {
-  margin-bottom: var(--margin-text-base);
-  padding-left: 2em;
+    margin-bottom: var(--margin-text-base);
+    padding-left: 2em;
 
-  li {
-    margin-top: var(--margin-list-item);
+    li {
+        margin-top: var(--margin-list-item);
 
-    &:first-child {
-      margin-top: 0;
+        &:first-child {
+            margin-top: 0;
+        }
     }
-  }
 
-  ol,
-  ul {
-    margin-bottom: 0;
+    ol,
+    ul {
+        margin-bottom: 0;
 
-    li:first-child {
-      margin-top: var(--margin-list-item);
+        li:first-child {
+            margin-top: var(--margin-list-item);
+        }
     }
-  }
 }
 
 .info-list {
-  $self: &;
+    $self: &;
 
-  &__term {
-    font-weight: var(--font-weight-bold);
-    padding-top: 0.1rem;
-  }
-
-  &__details {
-    word-break: break-word;
-    padding-top: 0.22rem;
-
-    &--link {
-      padding-top: 0.1rem;
-    }
-  }
-
-  &--has-icons {
-    #{$self}__term {
-      @include icon($icon-size-medium);
-      padding-left: calc($icon-size-medium + var(--spacing-xs));
-
-      &::before {
-        top: 0.4rem;
-      }
-    }
-  }
-
-  &--small {
-    font-size: var(--font-size-small);
-    gap: 0.625em;
-
-    &.info-list--has-icons {
-      #{$self}__term::before {
-        top: 0.2rem;
-      }
+    &__term {
+        font-weight: var(--font-weight-bold);
+        padding-top: 0.1rem;
     }
 
-    &.info-list--has-icons.info-list--has-small-icons {
-      #{$self}__term::before {
-        top: 0.4rem;
-      }
-    }
-  }
+    &__details {
+        word-break: break-word;
+        padding-top: 0.22rem;
 
-  &--hidden-label {
-    &.info-list--has-icons {
-      #{$self}__term {
-        padding-left: $icon-size-medium;
-      }
+        &--link {
+            padding-top: 0.1rem;
+        }
     }
 
-    &.info-list--has-icons.info-list--has-small-icons {
-      #{$self}__term {
-        padding-left: $icon-size-small;
-      }
+    &--has-icons {
+        #{$self}__term {
+            @include icon($icon-size-medium);
+            padding-left: calc($icon-size-medium + var(--spacing-xs));
+
+            &::before {
+                top: 0.4rem;
+            }
+        }
     }
-  }
 
-  &--has-small-icons {
-    .icon {
+    &--small {
+        font-size: var(--font-size-small);
+        gap: 0.625em;
 
-      @include icon($icon-size-small);
-      @include icon-plate($icon-size-small, $icon-size-small);
-      padding-left: calc($icon-size-small + var(--spacing-xs));
+        &.info-list--has-icons {
+            #{$self}__term::before {
+                top: 0.2rem;
+            }
+        }
 
-      &::before {
-        top: 0.6rem;
-      }
+        &.info-list--has-icons.info-list--has-small-icons {
+            #{$self}__term::before {
+                top: 0.4rem;
+            }
+        }
     }
-  }
 
-  &--tight {
-    row-gap: var(--margin-list-item);
-  }
+    &--hidden-label {
+        &.info-list--has-icons {
+            #{$self}__term {
+                padding-left: $icon-size-medium;
+            }
+        }
+
+        &.info-list--has-icons.info-list--has-small-icons {
+            #{$self}__term {
+                padding-left: $icon-size-small;
+            }
+        }
+    }
+
+    &--has-small-icons {
+        .icon {
+            @include icon($icon-size-small);
+            @include icon-plate($icon-size-small, $icon-size-small);
+            padding-left: calc($icon-size-small + var(--spacing-xs));
+
+            &::before {
+                top: 0.6rem;
+            }
+        }
+    }
+
+    &--tight {
+        row-gap: var(--margin-list-item);
+    }
 }

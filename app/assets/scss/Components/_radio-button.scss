@@ -1,23 +1,25 @@
-﻿@use "@scss/mixins/form-element-mixins" as *;
+﻿@use '@scss/mixins/form-element-mixins' as *;
 
 .radio-group {
-  @include form-group;
+    @include form-group;
 
-  .radio-button {
-    @include check-element;
+    .radio-button {
+        @include check-element;
 
-    /*Note: used as script selector*/
-    &__input {
+        /*Note: used as script selector*/
+        &__input {
+            &:checked {
+                background-color: var(
+                    --theme-radio-group-radio-button-input-checked-background-color
+                );
+                border: 0.35rem solid
+                    var(--theme-radio-group-radio-button-input-checked-border-color);
+                cursor: default;
 
-      &:checked {
-        background-color: var(--theme-radio-group-radio-button-input-checked-background-color);
-        border: 0.35rem solid var(--theme-radio-group-radio-button-input-checked-border-color);
-        cursor: default;
-
-        + .form-label {
-          cursor: default;
+                + .form-label {
+                    cursor: default;
+                }
+            }
         }
-      }
     }
-  }
 }

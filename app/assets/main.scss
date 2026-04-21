@@ -10,3 +10,10 @@
 @use '@scss/components/button';
 @use '@scss/components/heading';
 @use '@scss/components/image-and-text-block';
+@use '@scss/components/preamble';
+
+// Layout features
+@use '@features/Layout/Features/Header/Scss/_header';
+@use '@features/Layout/Features/Footer/Scss/_footer';
+@use '@features/Layout/Features/Footer/Scss/_contactinfo';
+@use '@features/Layout/Features/Footer/Scss/_socialmedialink';

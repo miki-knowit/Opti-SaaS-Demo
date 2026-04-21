@@ -74,7 +74,8 @@
 
         &,
         &:focus-visible {
-            outline: var(--border-small) solid var(--theme-header-skip-link-focus-visible-outline-color);
+            outline: var(--border-small) solid
+                var(--theme-header-skip-link-focus-visible-outline-color);
             outline-offset: 0;
         }
 

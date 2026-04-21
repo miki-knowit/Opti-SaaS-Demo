@@ -1,128 +1,143 @@
-@use "@scss/mixins/general-mixins" as *;
-@use "@scss/mixins/icon-mixins" as *;
+@use '@scss/mixins/general-mixins' as *;
+@use '@scss/mixins/icon-mixins' as *;
 @use '@scssMain/color-theme-default' as *;
 
 a {
-  font-weight: var(--font-weight-bold);
-  transition: var(--transition-base);
-  font-size: var(--font-size-small);
-  line-height: var(--line-height-base);
+    font-weight: var(--font-weight-bold);
+    transition: var(--transition-base);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-base);
 
-  &:focus-visible {
-    @include focus-frame;
-    text-decoration: none;
-  }
+    &:focus-visible {
+        @include focus-frame;
+        text-decoration: none;
+    }
 }
-
 
 // Text link - Link in regular body text
 .body-link {
-  color: var(--theme-link-primary-color);
+    color: var(--theme-link-primary-color);
 }
 
 // "body-link" text color based on section background color
 @each $section-color in $section-colors {
-  .section--bg-#{$section-color} {
-    .body-link {
-      color: getSectionColor(link-text, $section-color);
+    .section--bg-#{$section-color} {
+        .body-link {
+            color: getSectionColor(link-text, $section-color);
+        }
     }
-  }
 }
 
 // Button link
 .link {
-  --link-left-padding-before-icon: 0.6rem;
-  --link-icon-left-position: 0.4rem;
+    --link-left-padding-before-icon: 0.6rem;
+    --link-icon-left-position: 0.4rem;
 
-  display: block;
-  position: relative;
-  padding: var(--spacing-xxs) var(--spacing-small);
-  padding-left: calc($icon-size-small + var(--link-left-padding-before-icon));
-  padding-right: var(--spacing-xxs);
-  color: var(--theme-link-primary-color);
-  text-decoration: none;
-  font-size: var(--font-size-small);
-  line-height: var(--line-height-reset);
-  border-radius: var(--border-radius-xxs);
-
-  &::before {
-    @include icon($icon-size-small, $color: var(--theme-link-primary-icon-color), $image: url("@images/icons/icon-arrow-right.svg"));
-    top: calc(50% - $icon-size-small / 2);
-    left: 0;
-    transition: var(--transition-base);
-  }
-
-  &:hover {
-    &::before {
-      left: var(--link-icon-left-position);
-    }
-  }
-
-  &:focus-visible {
-    @include focus-frame;
+    display: block;
+    position: relative;
+    padding: var(--spacing-xxs) var(--spacing-small);
+    padding-left: calc($icon-size-small + var(--link-left-padding-before-icon));
+    padding-right: var(--spacing-xxs);
+    color: var(--theme-link-primary-color);
+    text-decoration: none;
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-reset);
+    border-radius: var(--border-radius-xxs);
 
     &::before {
-      left: var(--link-icon-left-position);
-    }
-  }
-
-  &--disabled {
-    &,
-    &:hover {
-      color: var(--theme-link-disabled-text-color);
-      cursor: default;
-
-      &::before {
+        @include icon(
+            $icon-size-small,
+            $color: var(--theme-link-primary-icon-color),
+            $image: url('@images/icons/icon-arrow-right.svg')
+        );
+        top: calc(50% - $icon-size-small / 2);
         left: 0;
-        background-color: var(--theme-link-disabled-text-color);
-      }
-    }
-  }
-
-  &--download {
-    padding-left: calc($icon-size-small + var(--spacing-xs));
-
-    &::before {
-      @include icon($icon-size-small, $color: var(--theme-link-primary-color), $image: url("@images/icons/icon-chevron-down.svg"));
-      margin-top: calc(($icon-size-small / 2) * -1);
+        transition: var(--transition-base);
     }
 
-    &:hover::before {
-      left: 0;
+    &:hover {
+        &::before {
+            left: var(--link-icon-left-position);
+        }
     }
 
     &:focus-visible {
-      padding-left: calc(var(--spacing-xs) + $icon-size-small + var(--spacing-xs));
+        @include focus-frame;
+
+        &::before {
+            left: var(--link-icon-left-position);
+        }
     }
-  }
+
+    &--disabled {
+        &,
+        &:hover {
+            color: var(--theme-link-disabled-text-color);
+            cursor: default;
+
+            &::before {
+                left: 0;
+                background-color: var(--theme-link-disabled-text-color);
+            }
+        }
+    }
+
+    &--download {
+        padding-left: calc($icon-size-small + var(--spacing-xs));
+
+        &::before {
+            @include icon(
+                $icon-size-small,
+                $color: var(--theme-link-primary-color),
+                $image: url('@images/icons/icon-chevron-down.svg')
+            );
+            margin-top: calc(($icon-size-small / 2) * -1);
+        }
+
+        &:hover::before {
+            left: 0;
+        }
+
+        &:focus-visible {
+            padding-left: calc(var(--spacing-xs) + $icon-size-small + var(--spacing-xs));
+        }
+    }
 }
 
 // link text color based on section background color
 @each $section-color in $section-colors {
-  .section--bg-#{$section-color} {
-    .link {
-      color: getSectionColor(link-text, $section-color);
+    .section--bg-#{$section-color} {
+        .link {
+            color: getSectionColor(link-text, $section-color);
 
-      &::before {
-        @include icon($icon-size-small, $color: getSectionColor(link-icon, $section-color), $image: url("@images/icons/icon-arrow-right.svg"));
-      }
+            &::before {
+                @include icon(
+                    $icon-size-small,
+                    $color: getSectionColor(link-icon, $section-color),
+                    $image: url('@images/icons/icon-arrow-right.svg')
+                );
+            }
 
-      &--disabled {
-        &,
-        &:hover {
-          color: getSectionColor(link-disabled-text, $section-color);
+            &--disabled {
+                &,
+                &:hover {
+                    color: getSectionColor(link-disabled-text, $section-color);
 
-          &::before {
-            background-color: getSectionColor(link-disabled-text, $section-color);
-          }
+                    &::before {
+                        background-color: getSectionColor(link-disabled-text, $section-color);
+                    }
+                }
+            }
+
+            &--download {
+                &::before {
+                    @include icon(
+                        $icon-size-small,
+                        $color: getSectionColor(link-text, $section-color),
+                        $image: url('@images/icons/icon-chevron-down.svg')
+                    );
+                }
+            }
         }
-      }
-
-      &--download {
-        &::before {
-          @include icon($icon-size-small, $color: getSectionColor(link-text, $section-color), $image: url("@images/icons/icon-chevron-down.svg"));
-        }
-      }
     }
-  }
 }

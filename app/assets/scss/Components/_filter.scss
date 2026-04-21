@@ -1,12 +1,12 @@
-﻿@use "@scss/mixins/list-mixins" as *;
+﻿@use '@scss/mixins/list-mixins' as *;
 
 .filter {
-  @include horizontal-list;
+    @include horizontal-list;
 
-  & {
-    width: 100%;
-    justify-content: flex-start;
-    gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-xl);
-  }
+    & {
+        width: 100%;
+        justify-content: flex-start;
+        gap: var(--spacing-xs);
+        margin-bottom: var(--spacing-xl);
+    }
 }
