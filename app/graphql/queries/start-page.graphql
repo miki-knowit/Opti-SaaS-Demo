@@ -1,9 +1,20 @@
 query StartPageQuery {
     StartPage {
         items {
-            HeadingProp
             TextProp {
                 html
+            }
+            HeaderBlock {
+                Preamble
+                ImageBlock {
+                    HeadingProp
+                    ImageProp {
+                        url {
+                            default
+                        }
+                    }
+                    PlaceImageRight
+                }
             }
             ContentAreaProp {
                 __typename
@@ -29,15 +40,6 @@ query StartPageQuery {
                             }
                         }
                     }
-                }
-                ... on ImageBlock {
-                    HeadingProp
-                    ImageProp {
-                        url {
-                            default
-                        }
-                    }
-                    PlaceImageRight
                 }
                 ... on TextBlock {
                     TextProp {

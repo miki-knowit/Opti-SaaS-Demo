@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { ImageBlockItem, SectionBlockItem, TextBlockItem, StartPageData } from '~/graphql/start-page.types';
+import type {
+    ImageBlockItem,
+    SectionBlockItem,
+    TextBlockItem,
+    StartPageData,
+} from '~/graphql/start-page.types';
 import SectionBlock from '../blocks/SectionBlock.vue';
 import ImageBlock from '../blocks/ImageBlock.vue';
-import TextBlock from "~/components/blocks/TextBlock.vue";
+import TextBlock from '../blocks/TextBlock.vue';
+import HeaderBlock from '../blocks/HeaderBlock.vue';
 
 const { data, status, error } = await useFetch<StartPageData>('/api/start-page');
 
@@ -11,8 +17,10 @@ const { data, status, error } = await useFetch<StartPageData>('/api/start-page')
 // the first StartPage item in the collection.
 const startPage = computed(() => data.value?.StartPage?.items?.[0] ?? null);
 const hasStartPage = computed(() => !!startPage.value);
-const headerTitle = computed(() => startPage.value?.HeadingProp || '');
-const headerBody = computed(() => startPage.value?.TextProp?.html || '');
+
+const headerBlock = computed(() => startPage.value?.HeaderBlock ?? null);
+
+const startPageBody = computed(() => startPage.value?.TextProp?.html || '');
 const contentArea = computed(() => startPage.value?.ContentAreaProp ?? []);
 
 // Filter and collect content blocks by type for rendering.
@@ -34,11 +42,13 @@ const textBlocks = computed(() =>
     <div class="start-page">
         <div v-if="status === 'pending' && !hasStartPage">Loading start page content...</div>
         <div v-else-if="error && !hasStartPage">Failed to load start page content.</div>
-
-        <section v-if="headerTitle || headerBody" class="start-page__header">
+        <section class="start-page__header">
             <img class="start-page__header-icon" src="/icon.svg" alt="Knowit Experience logo" />
-            <h1 v-if="headerTitle" class="heading">{{ headerTitle }}</h1>
-            <div v-if="headerBody" v-html="headerBody" />
+            <HeaderBlock v-if="headerBlock" :header-block="headerBlock" />
+        </section>
+
+        <section class="start-page__header">
+            <div v-if="startPageBody" v-html="startPageBody" />
         </section>
 
         <SectionBlock
@@ -53,24 +63,14 @@ const textBlocks = computed(() =>
             :image-block="item"
         />
 
-      <TextBlock
-          v-for="(item, index) in textBlocks"
-          :key="`text-${index}`"
-          :text-block="item"
-      />
+        <TextBlock v-for="(item, index) in textBlocks" :key="`text-${index}`" :text-block="item" />
     </div>
 </template>
 
 <style scoped>
-.start-page__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 img.start-page__header-icon {
-    width: 40px;
-    height: 40px;
-    display: block;
+  width: 40px;
+  height: 40px;
+  display: block;
 }
 </style>
