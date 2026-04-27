@@ -9,20 +9,21 @@ import type {
 import SectionBlock from '../blocks/SectionBlock.vue';
 import ImageBlock from '../blocks/ImageBlock.vue';
 import TextBlock from '../blocks/TextBlock.vue';
-import HeaderBlock from '../blocks/HeaderBlock.vue';
+import PageHeader from '../blocks/PageHeader.vue';
 import FooterBlock from '../blocks/FooterBlock.vue';
 
 const { data, status, error } = await useFetch<StartPageData>('/api/start-page');
 
 // The API returns the GraphQL query result shape, so the page content lives on
 // the first StartPage item in the collection.
+console.log("data.value:")
+console.log(data.value)
 const startPage = computed(() => data.value?.StartPage?.items?.[0] ?? null);
 const hasStartPage = computed(() => !!startPage.value);
 
-const headerBlock = computed(() => startPage.value?.HeaderBlock ?? null);
+const pageHeader = computed(() => startPage.value?.PageHeader ?? null);
 const footerBlock = computed(() => startPage.value?.FooterBlock ?? null);
 
-const startPageBody = computed(() => startPage.value?.TextProp?.html || '');
 const contentArea = computed(() => startPage.value?.ContentAreaProp ?? []);
 
 // Filter and collect ContentArea blocks by type for rendering.
@@ -44,15 +45,8 @@ const textBlocks = computed(() =>
     <div class="start-page">
         <div v-if="status === 'pending' && !hasStartPage">Loading start page content...</div>
         <div v-else-if="error && !hasStartPage">Failed to load start page content.</div>
-            
-      <HeaderBlock v-if="headerBlock"
-                   :header-block="headerBlock"
-      />
 
-
-        <body>
-            <div v-if="startPageBody" v-html="startPageBody" />
-        </body>
+        <PageHeader v-if="pageHeader" :page-header="pageHeader" />
 
         <SectionBlock
             v-for="(item, index) in sectionBlocks"
@@ -66,14 +60,8 @@ const textBlocks = computed(() =>
             :image-block="item"
         />
 
-        <TextBlock v-for="(item, index) in textBlocks"
-                   :key="`text-${index}`" 
-                   :text-block="item"
-        />
+        <TextBlock v-for="(item, index) in textBlocks" :key="`text-${index}`" :text-block="item" />
 
-        <FooterBlock v-if="footerBlock"
-                     :footer-block="footerBlock"
-        />
-      
+        <FooterBlock v-if="footerBlock" :footer-block="footerBlock" />
     </div>
 </template>

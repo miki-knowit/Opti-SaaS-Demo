@@ -1,22 +1,9 @@
 <script setup lang="ts">
-defineProps<{
-    footerBlock: {
-        __typename?: 'FooterBlock';
-        ContactHeading?: string | null;
-        Email?: string | null;
-        Phone?: string | null;
-        Address?: string | null;
-        Links?: Array<{
-            __typename?: 'Link';
-            text?: string | null;
-            target?: string | null;
-            title?: string | null;
-            url?: {
-                default?: string | null;
-            } | null;
-        } | null> | null;
-    } | null;
-}>();
+import type {FooterBlockQuery} from "~/graphql/generated";
+
+const { data, status, error } = await useFetch<FooterBlockQuery>('/api/footer-block');
+console.log(data)
+const footerBlock = computed(() => data.value?.FooterBlock?.items?.[0] ?? null);
 </script>
 
 <template>

@@ -1,112 +1,118 @@
 <script setup lang="ts">
-defineProps<{
-    headerBlock: {
-        __typename: 'HeaderBlock';
-        ImageBlock?: {
-            HeadingProp?: string | null;
-            ImageProp?: { url?: { default?: string | null } | null } | null;
-        } | null;
-        Preamble?: string | null;
-    };
-}>();
-
 import { ref } from 'vue';
-
+import type { HeaderBlockQuery } from '~/graphql/generated'
 const isOpen = ref(false);
 
 function toggleMenu() {
-  isOpen.value = !isOpen.value;
+    isOpen.value = !isOpen.value;
 }
 
 function closeMenu() {
-  isOpen.value = false;
+    isOpen.value = false;
 }
+
+const { data, status, error } = await useFetch<HeaderBlockQuery>('/api/header-block');
+const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
 </script>
 
 <template>
-    <header class="header">
-        <div class="header__container">
-          
-          <div class="header__text">
-            <h2 v-if="headerBlock.Preamble" class="header__preamble">
-              {{ headerBlock.Preamble }}
-            </h2>
+  <header class="header">
+    <div class="header__container">
+      <figure class="header__logo" v-if="headerBlock?.Logo?.url?.default">
+      <NuxtLink to="/">
+        <img :src="headerBlock.Logo.url.default" alt="Site logo" />
+      </NuxtLink>
+    </figure>
 
-            <h3 v-if="headerBlock.ImageBlock?.HeadingProp" class="header__Heading">
-              {{ headerBlock.ImageBlock?.HeadingProp }}
-            </h3>
-          </div>
-          
-          <figure class="header__logo">
-            <NuxtLink to="/">
-              <img src="/icon.svg" alt="Knowit Experience logo" />
-            </NuxtLink>
-          </figure>
-          
-          <button 
-              class="header__menu-toggle" 
-              @click="toggleMenu">
-            Menu
-          </button>
+      <button class="header__menu-toggle" @click="toggleMenu">
+        Meny
+      </button>
 
-            <nav class="header__nav" :class="{ 'header__nav--open': isOpen }">
-                <ul class="header__nav-list">
-                    <li class="header__nav-item"><NuxtLink to="/" @click="closeMenu">Home</NuxtLink></li>
-                    <li class="header__nav-item"><NuxtLink to="/about" @click="closeMenu">About</NuxtLink></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+      <nav class="header__nav" :class="{ 'header__nav--open': isOpen }">
+      <ul class="header__nav-list">
+        <li
+            v-for="(link, index) in headerBlock?.NavLinks"
+            :key="index"
+            class="header__nav-item"
+        >
+          <NuxtLink
+              v-if="link?.url?.default"
+              :to="link.url.default"
+              class="header__nav-link"
+              @click="closeMenu"
+          >
+            {{ link.text }}
+          </NuxtLink>
+        </li>
+      </ul>
+    </nav>
+    </div>
+  </header>
 </template>
 
 <style scoped lang="scss">
-.header__menu-toggle {
-  align-self: flex-end;
-}
-
-.header__nav {
-  display: none;
-  width: 100%;
-  
-  font-size: var(--font-size-large);
-}
-
-.header__nav--open {
-  display: block;
-}
-
-.header__nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.header {
+  background: var(--header-background-alternative, rgba(254, 251, 230, 0.00));
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-.header__nav-item {
-text-decoration: none;
-}
-
-.header__content {
   width: 100%;
-  padding: 0 var(--spacing-xs) var(--spacing-medium);
+  flex-direction: row;
+  align-items: flex-start;
+  position: absolute;
+
+  &__nav {
+    display: none;
+    padding: 4px var(--spacing-xxl, 72px) 0 0;
+    align-items: center;
+    gap: var(--spacing-xl, 48px);
+
+    &--open {
+      display: block;
+    }
+  }
+  
+  &__nav-list {
+    display: flex;
+    gap: 10px;
+  }
+  
+  &__nav-item {
+    display: flex;
+    align-items: center;
+
+    color: var(--palette-color-black-100);
+    text-decoration: none;
+  }
+  
+  &__nav-link {
+    color: var(--palette-color-black-100);
+    gap: var(--spacing-xxs, 8px);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  
+  &__logo {
+    display: flex;
+    width: 120px; // TODO: fix the hamburger menu and the logo being out of pos.
+    height: 43px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    aspect-ratio: 120/43;
+  }
+  
+  &__menu-toggle {
+    color: var(--palette-color-black-100);
+    justify-content: flex-end;
+  }
+  
 }
 
-@media (min-width: 1200px) {
-  .header__menu-toggle {
-    display: none;
-  }
-
-  .header__nav {
-    display: block;
-    width: auto;
-    margin-left: auto;
-  }
-
-  .header__nav-list {
-    flex-direction: row;
-    align-items: center;
-  }
+.header__container {
+  background: var(--header-background-alternative, rgba(254, 251, 230, 0.00));
+  width: 100%;
+  padding: var(--spacing-small, 24px) 56px;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>
