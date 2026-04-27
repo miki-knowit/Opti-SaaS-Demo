@@ -1,17 +1,18 @@
-query StartPageQuery {
+query StartPage {
     StartPage {
         items {
-            TextProp {
-                html
-            }
-            HeaderBlock {
+            PageHeader {
+                Image {
+                    url {
+                        default
+                    }
+                }
+                Header
                 Preamble
-                ImageBlock {
-                    HeadingProp
-                    ImageProp {
-                        url {
-                            default
-                        }
+                CTALink {
+                    text
+                    url {
+                        default
                     }
                 }
             }
@@ -43,20 +44,6 @@ query StartPageQuery {
                 ... on TextBlock {
                     TextProp {
                         html
-                    }
-                }
-            }
-            FooterBlock {
-                ContactHeading
-                Email
-                Phone
-                Address
-                Links {
-                    text
-                    title
-                    target
-                    url {
-                        default
                     }
                 }
             }

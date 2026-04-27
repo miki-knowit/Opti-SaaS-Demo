@@ -1,0 +1,18 @@
+﻿query FooterBlock {
+    FooterBlock {
+        items {
+            ContactHeading
+            Email
+            Phone
+            Address
+            Links {
+                text
+                title
+                target
+                url {
+                    default
+                }
+            }
+        }
+    }   
+}

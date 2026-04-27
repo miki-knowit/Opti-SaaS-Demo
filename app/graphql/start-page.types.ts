@@ -1,8 +1,8 @@
-import type { StartPageQuery } from '~/graphql/generated';
+import type { StartPage } from '~/graphql/generated';
 
 // Re-export the generated operation result so components can type API responses
 // without redefining the Optimizely-backed schema shape locally.
-export type StartPageData = StartPageQuery;
+export type StartPageData = StartPage;
 
 // These aliases derive the concrete StartPage content items and block unions from
 // the generated query result, keeping CMS-driven typing in one place.

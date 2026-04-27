@@ -911,6 +911,109 @@ export type GenericMediaWhereInput = {
   _or?: InputMaybe<Array<InputMaybe<GenericMediaWhereInput>>>;
 };
 
+export type HeaderBlock = IData & _IComponent & _IContent & _IItem & {
+  __typename?: 'HeaderBlock';
+  ImageBlock?: Maybe<ImageBlockProperty>;
+  Preamble?: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _itemMetadata?: Maybe<_Metadata>;
+  _json?: Maybe<Scalars['JSON']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type HeaderBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeaderBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type HeaderBlockAutocomplete = {
+  __typename?: 'HeaderBlockAutocomplete';
+  ImageBlock?: Maybe<ImageBlockPropertyAutocomplete>;
+  _itemMetadata?: Maybe<_MetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type HeaderBlockFacet = {
+  __typename?: 'HeaderBlockFacet';
+  ImageBlock?: Maybe<ImageBlockPropertyFacet>;
+  _itemMetadata?: Maybe<_MetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type HeaderBlockOrderByInput = {
+  ImageBlock?: InputMaybe<ImageBlockPropertyOrderByInput>;
+  _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type HeaderBlockOutput = {
+  __typename?: 'HeaderBlockOutput';
+  autocomplete?: Maybe<HeaderBlockAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<HeaderBlockFacet>;
+  item?: Maybe<HeaderBlock>;
+  items?: Maybe<Array<Maybe<HeaderBlock>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type HeaderBlockOutputTotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type HeaderBlockProperty = {
+  __typename?: 'HeaderBlockProperty';
+  ImageBlock?: Maybe<ImageBlockProperty>;
+  Preamble?: Maybe<Scalars['String']['output']>;
+};
+
+export type HeaderBlockPropertyAutocomplete = {
+  __typename?: 'HeaderBlockPropertyAutocomplete';
+  ImageBlock?: Maybe<ImageBlockPropertyAutocomplete>;
+};
+
+export type HeaderBlockPropertyFacet = {
+  __typename?: 'HeaderBlockPropertyFacet';
+  ImageBlock?: Maybe<ImageBlockPropertyFacet>;
+};
+
+export type HeaderBlockPropertyOrderByInput = {
+  ImageBlock?: InputMaybe<ImageBlockPropertyOrderByInput>;
+};
+
+export type HeaderBlockPropertyWhereInput = {
+  ImageBlock?: InputMaybe<ImageBlockPropertyWhereInput>;
+};
+
+export type HeaderBlockWhereInput = {
+  ImageBlock?: InputMaybe<ImageBlockPropertyWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<HeaderBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _itemMetadata?: InputMaybe<_MetadataWhereInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<HeaderBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<HeaderBlockWhereInput>>>;
+};
+
 /** Options for highlighting */
 export type HighlightOptions = {
   enabled?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1812,6 +1915,7 @@ export type Query = {
   CommonPage?: Maybe<CommonPageOutput>;
   Data?: Maybe<DataOutput>;
   GenericMedia?: Maybe<GenericMediaOutput>;
+  HeaderBlock?: Maybe<HeaderBlockOutput>;
   ImageBlock?: Maybe<ImageBlockOutput>;
   ImageMedia?: Maybe<ImageMediaOutput>;
   SectionBlock?: Maybe<SectionBlockOutput>;
@@ -1902,6 +2006,20 @@ export type QueryGenericMediaArgs = {
   tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<GenericMediaWhereInput>;
+};
+
+
+export type QueryHeaderBlockArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HeaderBlockOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<HeaderBlockWhereInput>;
 };
 
 
@@ -2191,6 +2309,7 @@ export type QueryRef = {
   CommonPage?: Maybe<CommonPageOutput>;
   Data?: Maybe<DataOutput>;
   GenericMedia?: Maybe<GenericMediaOutput>;
+  HeaderBlock?: Maybe<HeaderBlockOutput>;
   ImageBlock?: Maybe<ImageBlockOutput>;
   ImageMedia?: Maybe<ImageMediaOutput>;
   SectionBlock?: Maybe<SectionBlockOutput>;
@@ -2281,6 +2400,20 @@ export type QueryRefGenericMediaArgs = {
   tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<GenericMediaWhereInput>;
+};
+
+
+export type QueryRefHeaderBlockArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<HeaderBlockOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<HeaderBlockWhereInput>;
 };
 
 
@@ -2754,7 +2887,7 @@ export type SectionBlockWhereInput = {
 export type StartPage = IData & _IContent & _IItem & _IPage & {
   __typename?: 'StartPage';
   ContentAreaProp?: Maybe<Array<Maybe<_IContent>>>;
-  HeadingProp?: Maybe<Scalars['String']['output']>;
+  HeaderBlock?: Maybe<HeaderBlockProperty>;
   TextProp?: Maybe<RichText>;
   /** @deprecated Use `_link` field instead */
   _children?: Maybe<QueryRef>;
@@ -2783,6 +2916,7 @@ export type StartPage_LinkArgs = {
 export type StartPageAutocomplete = {
   __typename?: 'StartPageAutocomplete';
   ContentAreaProp?: Maybe<_IContentAutocomplete>;
+  HeaderBlock?: Maybe<HeaderBlockPropertyAutocomplete>;
   TextProp?: Maybe<RichTextAutocomplete>;
   _itemMetadata?: Maybe<_MetadataAutocomplete>;
   _metadata?: Maybe<IContentMetadataAutocomplete>;
@@ -2791,6 +2925,7 @@ export type StartPageAutocomplete = {
 export type StartPageFacet = {
   __typename?: 'StartPageFacet';
   ContentAreaProp?: Maybe<_IContentFacet>;
+  HeaderBlock?: Maybe<HeaderBlockPropertyFacet>;
   TextProp?: Maybe<RichTextFacet>;
   _itemMetadata?: Maybe<_MetadataFacet>;
   _metadata?: Maybe<IContentMetadataFacet>;
@@ -2798,6 +2933,7 @@ export type StartPageFacet = {
 
 export type StartPageOrderByInput = {
   ContentAreaProp?: InputMaybe<_IContentOrderByInput>;
+  HeaderBlock?: InputMaybe<HeaderBlockPropertyOrderByInput>;
   TextProp?: InputMaybe<RichTextOrderByInput>;
   _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
   _metadata?: InputMaybe<IContentMetadataOrderByInput>;
@@ -2825,6 +2961,7 @@ export type StartPageOutputTotalArgs = {
 
 export type StartPageWhereInput = {
   ContentAreaProp?: InputMaybe<_IContentWhereInput>;
+  HeaderBlock?: InputMaybe<HeaderBlockPropertyWhereInput>;
   TextProp?: InputMaybe<RichTextWhereInput>;
   _and?: InputMaybe<Array<InputMaybe<StartPageWhereInput>>>;
   _fulltext?: InputMaybe<SearchableStringFilterInput>;
@@ -4701,18 +4838,20 @@ export type UsePinnedInput = {
 export type StartPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typename?: 'StartPageOutput', items?: Array<{ __typename?: 'StartPage', HeadingProp?: string | null, TextProp?: { __typename?: 'RichText', html?: string | null } | null, ContentAreaProp?: Array<
+export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typename?: 'StartPageOutput', items?: Array<{ __typename?: 'StartPage', TextProp?: { __typename?: 'RichText', html?: string | null } | null, HeaderBlock?: { __typename?: 'HeaderBlockProperty', Preamble?: string | null, ImageBlock?: { __typename?: 'ImageBlockProperty', HeadingProp?: string | null, PlaceImageRight?: boolean | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null } | null } | null, ContentAreaProp?: Array<
         | { __typename: 'BlankExperience' }
         | { __typename: 'BlankSection' }
         | { __typename: 'CommonPage' }
         | { __typename: 'GenericMedia' }
-        | { __typename: 'ImageBlock', HeadingProp?: string | null, PlaceImageRight?: boolean | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null }
+        | { __typename: 'HeaderBlock' }
+        | { __typename: 'ImageBlock' }
         | { __typename: 'ImageMedia' }
         | { __typename: 'SectionBlock', HeadingProp?: string | null, ContentAreaProp?: Array<
             | { __typename: 'BlankExperience' }
             | { __typename: 'BlankSection' }
             | { __typename: 'CommonPage' }
             | { __typename: 'GenericMedia' }
+            | { __typename: 'HeaderBlock' }
             | { __typename: 'ImageBlock' }
             | { __typename: 'ImageMedia' }
             | { __typename: 'SectionBlock' }
@@ -4748,4 +4887,4 @@ export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typena
        | null> | null } | null> | null } | null };
 
 
-export const StartPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StartPageQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"StartPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SectionBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StartPageQueryQuery, StartPageQueryQueryVariables>;
+export const StartPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StartPageQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"StartPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}},{"kind":"Field","name":{"kind":"Name","value":"HeaderBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Preamble"}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SectionBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StartPageQueryQuery, StartPageQueryQueryVariables>;

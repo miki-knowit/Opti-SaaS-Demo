@@ -1,0 +1,231 @@
+@use "@scss/general/layout-variables" as *;
+@use "@scss/mixins/layout-mixins" as *;
+@use '@scssMain/color-theme-default' as *;
+
+.page-header {
+  --height: 55rem;
+  --smaller-height: 45rem;
+  --min-height-mobile: 20rem;
+  --height-start-page: 70rem;
+  --height-start-page-mobile: 50rem;
+  --max-width-header-components: 63rem;
+  --max-width-text-content-no-media: 95rem;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @media(min-width: $lg) {
+    height: var(--height);
+    flex-direction: row-reverse;
+    justify-content: center;
+
+    &--no-media {
+      height: var(--smaller-height);
+    }
+
+    &__media-container,
+    &__text-container-wrapper {
+      flex: 1;
+      flex-basis: 50%;
+    }
+  }
+
+  &__media-container {
+    display: flex;
+    position: relative;
+
+    picture, img {
+      width: 100%;
+      height: 100%;
+      min-height: var(--min-height-mobile);
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  // Next to media.
+  &__text-container-wrapper {
+    padding: 0 var(--spacing-xs);
+
+    @media (min-width: $sm) {
+      padding: 0 var(--spacing-small);
+    }
+
+    @media (min-width: $md) {
+      padding: 0 var(--spacing-medium);
+    }
+
+    @media (min-width: $lg) {
+      padding: 0 var(--spacing-large);
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @media (min-width: $xl) {
+      padding: 0 var(--spacing-xl);
+    }
+
+    @media (min-width: $xxl) {
+      padding: 0;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--spacing-xs) 0 var(--spacing-xl);
+    transition: var(--transition-padding);
+
+    h1 {
+      margin-top: 0;
+    }
+
+    @media(min-width: $sm) {
+      padding: var(--spacing-small) 0 var(--spacing-xl);
+    }
+
+    @media(min-width: $md) {
+      padding: var(--spacing-medium) 0 var(--spacing-xl);
+    }
+
+    @media(min-width: $lg) {
+      padding: var(--spacing-large) 0;
+      max-width: var(--max-width-header-components);
+    }
+
+    @media(min-width: $xxl) {
+      padding: var(--spacing-xxxl) var(--spacing-xxxl) var(--spacing-xxxl) 0;
+    }
+
+    @media(min-width: $xxxl) {
+      padding: var(--spacing-xxxl) var(--spacing-xxxl) var(--spacing-xxxl) 0;
+    }
+  }
+
+  &--no-media {
+    flex-direction: row;
+
+    .page-header__text-container-wrapper {
+      @include container;
+
+      & {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: var(--spacing-xs);
+        padding-right: var(--spacing-xs);
+        justify-content: flex-start;
+
+        @media (min-width: $sm) {
+          padding: 0 var(--spacing-small);
+        }
+
+        @media (min-width: $md) {
+          padding: 0 var(--spacing-medium);
+        }
+
+        @media (min-width: $lg) {
+          padding: 0 var(--spacing-large);
+        }
+
+        @media (min-width: $xl) {
+          padding: 0 var(--spacing-xl);
+        }
+
+      }
+
+      .page-header__text-container {
+        width: 100%;
+        max-width: var(--max-width-text-content-no-media);
+        padding: var(--spacing-xs) 0;
+
+        @media(min-width: $sm) {
+          padding: var(--spacing-small) 0;
+        }
+
+        @media(min-width: $md) {
+          padding: var(--spacing-medium) 0;
+        }
+
+        @media(min-width: $lg) {
+          padding: var(--spacing-large) 0;
+        }
+
+        @media(min-width: $xxl) {
+          padding: var(--spacing-xxxl) 0;
+        }
+      }
+    }
+  }
+
+  &--start-page {
+    height: var(--height-start-page-mobile);
+
+    @media(min-width: $lg) {
+      height: var(--height-start-page);
+    }
+
+    .page-header__text-container-wrapper {
+      @include container;
+
+      & {
+        display: block;
+        z-index: 1;
+      }
+    }
+
+    .page-header__text-container {
+      color: var(--theme-body-text-color-inverted);
+      max-width: var(--max-width-text-content-no-media);
+      height: 100%;
+      justify-content: flex-start;
+      padding-left: 1.5rem;
+      padding-top: var(--spacing-small);
+
+      @media(min-width: 330px) {
+        padding-top: var(--spacing-xxl);
+      }
+
+      @media(min-width: $lg) {
+        padding-top: var(--start-page-page-header-padding-top-desktop);
+      }
+    }
+
+    .page-header__media-container {
+      max-width: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page-header__image-gradient {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: radial-gradient(110% 100% at 30% 40%, rgba(52, 40, 43, 0.78) 0%, rgba(56, 42, 48, 0.27) 100%);
+      background-position: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+
+  @include background-color;
+  // Text color on different background colors
+  @each $section-color in $section-colors {
+    &--bg-#{$section-color} {
+      .page-header__text-container, .breadcrumbs__link {
+        color: getSectionColor(text, $section-color);
+      }
+    }
+  }
+}

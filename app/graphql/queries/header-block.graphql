@@ -1,0 +1,17 @@
+﻿query HeaderBlock {
+    HeaderBlock {
+        items {
+            Logo {
+                url {
+                    default
+                }
+            }
+            NavLinks {
+                text
+                url {
+                    default
+                }
+            }
+        }
+    }
+}

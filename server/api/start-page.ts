@@ -1,6 +1,6 @@
-import { StartPageQueryDocument } from '~/graphql/generated';
+import { StartPageDocument } from '~/graphql/generated';
 import { runGraphQuery } from '../utils/optimizely-graph';
 
 export default defineEventHandler(async () => {
-    return await runGraphQuery(StartPageQueryDocument, {});
+    return await runGraphQuery(StartPageDocument, {});
 });
