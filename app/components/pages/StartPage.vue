@@ -10,19 +10,15 @@ import SectionBlock from '../blocks/SectionBlock.vue';
 import ImageBlock from '../blocks/ImageBlock.vue';
 import TextBlock from '../blocks/TextBlock.vue';
 import PageHeader from '../blocks/PageHeader.vue';
-import FooterBlock from '../blocks/FooterBlock.vue';
 
 const { data, status, error } = await useFetch<StartPageData>('/api/start-page');
 
 // The API returns the GraphQL query result shape, so the page content lives on
 // the first StartPage item in the collection.
-console.log("data.value:")
-console.log(data.value)
 const startPage = computed(() => data.value?.StartPage?.items?.[0] ?? null);
 const hasStartPage = computed(() => !!startPage.value);
 
 const pageHeader = computed(() => startPage.value?.PageHeader ?? null);
-const footerBlock = computed(() => startPage.value?.FooterBlock ?? null);
 
 const contentArea = computed(() => startPage.value?.ContentAreaProp ?? []);
 
@@ -61,7 +57,5 @@ const textBlocks = computed(() =>
         />
 
         <TextBlock v-for="(item, index) in textBlocks" :key="`text-${index}`" :text-block="item" />
-
-        <FooterBlock v-if="footerBlock" :footer-block="footerBlock" />
     </div>
 </template>

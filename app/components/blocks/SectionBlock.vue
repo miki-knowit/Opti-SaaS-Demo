@@ -27,3 +27,12 @@ defineProps<{
         </div>
     </section>
 </template>
+
+<style scoped lang="scss">
+image {
+    width: auto;
+    height: auto;
+    max-width: 400px;
+    max-height: 400px;
+}
+</style>

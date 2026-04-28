@@ -37,9 +37,9 @@ defineProps<{
 }
 
 .image-block__content {
-    //width: 100%;
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .image-block__content--align-top {

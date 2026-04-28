@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import StartPage from './components/pages/StartPage.vue';
-import HeaderBlock from './components/blocks/HeaderBlock.vue'
-import FooterBlock from './components/blocks/FooterBlock.vue'
+import HeaderBlock from './components/blocks/HeaderBlock.vue';
+import FooterBlock from './components/blocks/FooterBlock.vue';
 </script>
 
 <template>
     <div>
         <NuxtRouteAnnouncer />
-      <HeaderBlock />
+        <HeaderBlock />
         <StartPage />
-      <FooterBlock />
+        <FooterBlock />
     </div>
 </template>
