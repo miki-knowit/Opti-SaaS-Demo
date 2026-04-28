@@ -1,4 +1,4 @@
-﻿import { FooterBlockDocument } from '~/graphql/generated';
+import { FooterBlockDocument } from '~/graphql/generated';
 import { runGraphQuery } from '../utils/optimizely-graph';
 
 export default defineEventHandler(async () => {

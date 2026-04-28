@@ -1,18 +1,34 @@
-﻿query FooterBlock {
+query FooterBlock {
     FooterBlock {
         items {
-            ContactHeading
-            Email
-            Phone
-            Address
-            Links {
-                text
-                title
-                target
-                url {
-                    default
+            ContentAreaGeneral {
+                __typename
+                ... on FooterLinksGeneralBlock {
+                    LinkListHeader
+                    LinkList {
+                        text
+                        title
+                        url {
+                            default
+                        }
+                    }
+                    TextField
+                }
+            }
+            ContentAreaForSocials {
+                __typename
+                ... on FooterSocials {
+                    Icon {
+                        url {
+                            default
+                        }
+                    }
+                    Link {
+                        default
+                    }
+                    Title
                 }
             }
         }
-    }   
+    }
 }
