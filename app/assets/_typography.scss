@@ -1,0 +1,48 @@
+:root {
+    // Fluid values are calculated between roughly mobile and desktop viewport widths.
+
+    /** headings */
+    --heading-xl {
+        font-family: Bagoss;
+        font-size: clamp(4.4rem, calc(4.048rem + 0.939vw), 5.4rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    --heading-large {
+        font-family: Bagoss;
+        font-size: clamp(3.6rem, calc(3.318rem + 0.751vw), 4.4rem);
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    --heading-medium {
+        font-family: Bagoss;
+        font-size: clamp(2.8rem, calc(2.518rem + 0.751vw), 3.6rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    --heading-small {
+        font-family: Bagoss;
+        font-size: clamp(2.2rem, calc(1.989rem + 0.563vw), 2.8rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    --heading-xs {
+        font-family: Bagoss;
+        font-size: clamp(2rem, calc(1.93rem + 0.188vw), 2.2rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+}

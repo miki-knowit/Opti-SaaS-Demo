@@ -19,7 +19,6 @@ query StartPage {
             ContentAreaProp {
                 __typename
                 ... on SectionBlock {
-                    HeadingProp
                     ContentAreaProp {
                         __typename
                         ... on TextImageBlock {
