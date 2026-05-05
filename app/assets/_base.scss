@@ -1,0 +1,25 @@
+﻿/* Base style and resets */
+
+html,
+*,
+*::after,
+*::before {
+    background-color: transparent;
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}

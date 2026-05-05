@@ -1,3 +1,5 @@
+// TODO: make classes of each button
+
 :root {
     --text-icon-light: var(--palette-color-white-100);
     --text-icon-dark: var(--palette-color-black-100);
@@ -22,7 +24,7 @@
     // saknas en tunn border runt fokus accent button
     --button-primary-accent-disabled-background: var(--palette-color-black-40);
     --button-primary-accent-disabled-text: var(--palette-color-white-100);
-    
+
     // SECONDARY
     --button-secondary-background: var(--palette-color-black-100);
     --button-secondary-text: var(--palette-color-white-100);
@@ -30,8 +32,7 @@
     --button-secondary-hover-text: var(--palette-color-black-100);
     --button-secondary-disabled-background: var(--palette-color-transparent-100);
     --button-secondary-disabled-text: var(--palette-color-black-60);
-    
-    
+
     // INVERTED, PRIMARY & SECONDARY
     --button-primary-inverted-background: var(--palette-color-black-100);
     --button-primary-inverted-text: var(--palette-color-white-100);
@@ -51,9 +52,7 @@
     --button-secondary-alternative-hover-background: var(--palette-color-black-100);
     --button-secondary-alternative-hover-text: var(--palette-color-white-100);
     --button-secondary-alternative-disabled-text: var(--palette-color-black-40);
-    
-    
-    
+
     // FILTER BUTTON ikoner behöver fixas
     --button-filter-background: var(--palette-color-transparent-1);
     --button-filter-text: var(--palette-color-white-100);
@@ -63,10 +62,10 @@
     --button-filter-selected-text: var(--palette-color-black-100);
     --button-filter-active-background: var(--palette-color-black-100);
     --button-filter-active-text: var(--palette-color-white-100);
-    --button-filter-disabled-background: var(--palette-color-transparent-100 );
+    --button-filter-disabled-background: var(--palette-color-transparent-100);
     --button-filter-disabled-text: var(--palette-color-black-60);
     --button-filter-text-icon: var(--text-icon-dark);
-    
+
     // FILTER BUTTON INVERTED
     --button-filter-inverted-background: var(--palette-color-transparent-100);
     --button-filter-inverted-text: var(--palette-color-black-100);
@@ -79,36 +78,31 @@
     --button-filter-inverted-disabled-background: var(--palette-color-transparent-100);
     --button-filter-inverted-disabled-text: var(--palette-color-black-40);
     --button-filter-inverted-text-icon: var(--text-icon-light);
-    
-    
-    
+
     // LINK BUTTON (ikoner behöver fixas)
     --button-link-background: var(--palette-color-black-100);
     --button-link-text: var(--palette-color-white-100);
     --button-link-hover-text: var(--palette-color-white-100);
     --button-link-active-text: var(--palette-color-white-100);
     --button-link-text-icon: var(--text-icon-light);
-    
+
     // LINK BUTTON INVERTED (ikoner behöver fixas)
     --button-link-inverted-background: var(--palette-color-transparent-100);
     --button-link-inverted-text: var(--palette-color-black-100);
     --button-link-inverted-hover-text: var(--palette-color-white-100);
     --button-link-inverted-active-text: var(--palette-color-black-100);
     --button-link-inverted-text-icon: var(--text-icon-dark);
-    
-    
-    
+
     // ROUND BUTTON (only default style, dark)
     --button-round-background: var(--palette-color-black-transparent-80);
     --button-round-ellipse-: var(--text-icon-light);
     --button-round-ellipse-stroke: var(--text-icon-light);
     --button-round-hover-background: var(--palette-color-transparent-100)
-    --button-round-active-background: var(#0B0B26);
+        --button-round-active-background: var(#0b0b26);
     --theme-focus-outline-width-round-button: var(--border-xs);
     --theme-focus-outline-round-button: var(--theme-focus-outline-width-round-button) solid;
     --theme-focus-outline-offset-round-button: var(--border-large);
-    
+
     // TODO: button styling is not specified yet, WIP
     // Adoptera (delvis?) designen från SMMTF, Sofie har gjort knapparna där. Det är CSS-stylad cirkel med en tunn border och sedan ikonen som läggs på.
-    
 }

@@ -40,119 +40,117 @@
     /* Margin bottom (Avstånd rubrik till brödtext) */
     --margin-bottom-heading-large: 12px;
     --margin-bottom-heading-general: 8px;
-
 }
-    /** headings */
-    .heading-xl {
-        font-family: var(--font-family-heading);
-        font-size: var(--font-size-heading-xl);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-heading);
-        margin-bottom: var(--margin-bottom-heading-general);
-    }
+/** headings */
+.heading-xl {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-heading-xl);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--margin-bottom-heading-general);
+}
 
-    .heading-large {
-        font-family: var(--font-family-heading);
-        font-size: var(--font-size-heading-large);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-heading);
-        margin-bottom: var(--margin-bottom-heading-large);
-    }
+.heading-large {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-heading-large);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--margin-bottom-heading-large);
+}
 
-    .heading-medium {
-        font-family: var(--font-family-heading);
-        font-size: var(--font-size-heading-medium);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-heading);
-        margin-bottom: var(--margin-bottom-heading-general);
-    }
+.heading-medium {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-heading-medium);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--margin-bottom-heading-general);
+}
 
-    .heading-small {
-        font-family: var(--font-family-heading);
-        font-size: var(--font-size-heading-small);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-heading);
-        margin-bottom: var(--margin-bottom-heading-general);
-    }
+.heading-small {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-heading-small);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--margin-bottom-heading-general);
+}
 
-    .heading-xs {
-        font-family: var(--font-family-heading);
-        font-size: var(--font-size-heading-xs);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-heading);
-        margin-bottom: var(--margin-bottom-heading-general);
-    }
-    
-    .base-large {
-        font-family: var(--font-family-base);
-        font-size: var(--font-size-base-large);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-base-general);
-    }
+.heading-xs {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-heading-xs);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--margin-bottom-heading-general);
+}
 
-    .base-bold {
-        font-family: var(--font-family-base);
-        font-size: var(--font-size-base-bold);
-        font-weight: var(--font-weight-medium);
-        line-height: var(--line-height-base-general);
-    }
+.base-large {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base-large);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base-general);
+}
 
-    .base {
-        font-family: var(--font-family-base);
-        font-size: var(--font-size-base);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-base);
-    }
-    
-    .base-link {
-        font-family: var(--font-family-base);
-        font-size: var(--font-size-base-link);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-base-general);
-    }
-    
-    .base-small-bold {
-        font-family: var(--font-family-base);
-        font-size: var(--font-size-base-small-bold);
-        font-weight: var(--font-weight-medium);
-        line-height: var(--line-height-base-general);
-    }
+.base-bold {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base-bold);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-base-general);
+}
 
-    .base-small {
-        font-family: var(--font-family-base);
-        font-size: var(--font-size-base-small);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-base-general);
-    }
-    
-    .base-xs {
-        font-family: var(--font-family-base);
-        font-size: var(--font-size-base-xs);
-        font-weight: var(--font-weight-light);
-        line-height: var(--line-height-base-general);
-    }
-    
-    .menu1 {
-        font-family: var(--font-family-menu);
-        font-size: var(--font-size-menu1);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-menu);
-    }
+.base {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base);
+}
 
-    .menu2 {
-        font-family: var(--font-family-menu);
-        font-size: var(--font-size-menu2);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-menu);
-    }
+.base-link {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base-link);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base-general);
+}
 
-    .menu3 {
-        font-family: var(--font-family-menu);
-        font-size: var(--font-size-menu3);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--line-height-menu);
-    }
+.base-small-bold {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base-small-bold);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-base-general);
+}
 
+.base-small {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base-small);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base-general);
+}
+
+.base-xs {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base-xs);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-base-general);
+}
+
+.menu1 {
+    font-family: var(--font-family-menu);
+    font-size: var(--font-size-menu1);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-menu);
+}
+
+.menu2 {
+    font-family: var(--font-family-menu);
+    font-size: var(--font-size-menu2);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-menu);
+}
+
+.menu3 {
+    font-family: var(--font-family-menu);
+    font-size: var(--font-size-menu3);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-menu);
+}
 
 /**
 codex suggests woff(n) instead of truetype as suggested in framework
@@ -161,8 +159,8 @@ How do I declare medium vs regular? - not necessary, because browser accepts the
 @font-face {
     font-family: 'Bagoss';
     src:
-            url('/Fonts/BagossStandard-Regular.woff2') format('woff2'),
-            url('/Fonts/BagossStandard-Regular.woff') format('woff');
+        url('/Fonts/BagossStandard-Regular.woff2') format('woff2'),
+        url('/Fonts/BagossStandard-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
