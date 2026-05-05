@@ -23,7 +23,7 @@ function buttonClick() {
 </script>
 
 <template>
-    <header class="page-header page-header--start-page">
+    <header class="page-header--start-page">
         <div v-if="pageHeader.Image?.url?.default" class="page-header__media-container">
             <img :src="pageHeader.Image.url.default" alt="Graphic Element Gradient" />
             <div class="page-header__image-gradient" />
@@ -31,10 +31,10 @@ function buttonClick() {
 
         <div class="page-header__text-container-wrapper">
             <div class="page-header__text-container">
-                <h1 v-if="pageHeader.Header" class="page-header__heading">
+                <h1 v-if="pageHeader.Header" class="page-header__heading heading-xl">
                     {{ pageHeader.Header }}
                 </h1>
-                <h3 v-if="pageHeader.Preamble" class="page-header__preamble">
+                <h3 v-if="pageHeader.Preamble" class="page-header__preamble base-large">
                     {{ pageHeader.Preamble }}
                 </h3>
                 <button
@@ -51,10 +51,11 @@ function buttonClick() {
 
 <style scoped lang="scss">
 .page-header {
-    &__start-page {
+    &--start-page {
         position: relative;
         overflow: hidden;
         min-height: 100svh;
+        width: 100vw;
     }
     &__text-container-wrapper {
         position: relative;
@@ -67,24 +68,15 @@ function buttonClick() {
         margin-left: 40px;
         color: var(--text-icon-dark, #0b0b26);
         flex-direction: column;
+        z-index: 1;
     }
 
     &__heading {
-        font-family: Bagoss;
-        font-size: 54px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 65px;
-        max-width: 700px;
+        max-width: 700px; // from figma mock-up
     }
 
     &__preamble {
-        font-family: Bagoss;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 28px;
-        max-width: 720px;
+        max-width: 720px; // from figma mock-up
     }
 
     &__button {
@@ -96,17 +88,12 @@ function buttonClick() {
         width: 178px;
         height: 58px;
         cursor: pointer;
-
         border-radius: var(--button-border-radius, 32px);
         background: var(--button-primary-accent-background, #372bc5);
-
         color: var(--button-primary-accent-text, #fefbe6);
 
-        font-family: Bagoss;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 26px;
+        font-family: var(--font-family-base);
+        font-size: var(--font-size-base);
 
         &:hover {
             background: #372bc5cc;
@@ -117,12 +104,12 @@ function buttonClick() {
         position: absolute;
         inset: 0;
         z-index: 0;
-        pointer-events: none;
     }
-    img {
+    &__media-container img {
         position: absolute;
+        inset: 0;
         width: 100%;
-        height: 100%;
+        height: 880px;
         object-fit: cover;
     }
 }

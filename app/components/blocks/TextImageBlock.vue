@@ -3,6 +3,7 @@ defineProps<{
     block: {
         __typename: 'TextImageBlock';
         HeadingProp?: string | null;
+        PlaceImageRight?: boolean | null;
         TextBlock?: { TextProp?: { html?: string | null } | null } | null;
         ImageBlock?: {
             HeadingProp?: string | null;
@@ -14,20 +15,26 @@ defineProps<{
 
 <template>
     <article class="section__item image-and-text-block">
-        <div class="image-and-text-block__content">
-            <div
-                class="image-and-text-block__column image-and-text-block__column--half image-and-text-block__image-block"
-            >
+        <div
+            class="image-and-text-block__content"
+            :class="{
+                'image-and-text-block__content--image-right': block.PlaceImageRight,
+                'image-and-text-block__content--image-left': !block.PlaceImageRight,
+            }"
+        >
+            <div class="image-and-text-block__column--image">
                 <img
+                    class="image-and-text-block__image"
                     v-if="block.ImageBlock?.ImageProp?.url?.default"
                     :src="block.ImageBlock.ImageProp.url.default"
                     :alt="block.ImageBlock?.HeadingProp || block.HeadingProp || ''"
                 />
             </div>
 
-            <div class="image-and-text-block__column image-and-text-block__column--half">
-                <h3 v-if="block.HeadingProp">{{ block.HeadingProp }}</h3>
+            <div class="image-and-text-block__column--text-container">
+                <h3 class="heading-large" v-if="block.HeadingProp">{{ block.HeadingProp }}</h3>
                 <div
+                    class="base"
                     v-if="block.TextBlock?.TextProp?.html"
                     v-html="block.TextBlock.TextProp.html"
                 />
@@ -35,3 +42,45 @@ defineProps<{
         </div>
     </article>
 </template>
+
+<style scoped lang="scss">
+.image-and-text-block {
+    width: 100%;
+}
+
+.image-and-text-block__content {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.image-and-text-block__content--image-right {
+    flex-direction: row-reverse;
+}
+
+.image-and-text-block__column--image,
+.image-and-text-block__column--text-container {
+    flex: 1 1 0;
+}
+
+.image-and-text-block__column--image {
+    min-height: 468px;
+}
+
+.image-and-text-block__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--site-page-partial-border-radius);
+}
+
+.image-and-text-block__column--text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--spacing-small);
+    padding: var(--spacing-small) var(--section-gap-normal);
+}
+</style>
