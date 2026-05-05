@@ -9,34 +9,38 @@
     --spacing-xl: 4.8rem;
     --spacing-xxl: 7.2rem;
     --spacing-xxxl: 12rem;
-
-    /** Buttons */
-    --spacing-top-bottom: 16px;
-    --spacing-left-right: 32px;
-    --border-radius: 32px;
-    --small-spacing-top-bottom: 8px;
-    --small-spacing-left-right: 16px;
-    --small-border-radius: 32px;
-
+    
     /** Sections */
-    --spacing-top-bottom: 56px;
-    --spacing-top-large: 72px;
-    --spacing-bottom-large: 120px;
-    --spacing-mobile-top-bottom: 48px;
-    --spacing-mobile-top-large: 40px;
-    --spacing-mobile-bottom-large: 72px;
-    --gap-tight: 24px;
-    --gap-normal: 48px;
-    --gap-large: 56px;
-    --gap-mobile-tight: 16px;
-    --gap-mobile-normal: 32px;
-    --gap-mobile-large: 48px;
+    --section-spacing-top-bottom: 5.6rem;
+    --section-spacing-top-large: 7.2rem;
+    --section-spacing-bottom-large: 7.2rem;
+    --section-spacing-mobile-spacing-top-bottom: 4.8rem;
+    --section-spacing-mobile-spacing-top-large: 4rem;
+    --section-spacing-mobile-spacing-bottom-large: 7.2rem;
+    --section-gap-tight: 2.4rem;
+    --section-gap-normal: 4.8rem;
+    --section-mobile-gap: 1.6rem;
+
 
     /** Site page partials */
-    --spacing-top: 2.4rem;
-    --spacing-bottom: 3.2rem;
-    --spacing-left-right: 0rem;
-    --mobile-spacing-top: 1.6rem;
-    --mobile-spacing-left-right: 0rem;
-    --border-radius: 3.2rem;
+    --site-page-partial-spacing-top: 2.4rem;
+    --site-page-partial-spacing-bottom: 3.2rem;
+    --site-page-partial-spacing-left-right: 2.4rem;
+    --site-page-partial-mobile-spacing-top: 1.6rem;
+    --site-page-partial-mobile-spacing-bottom: 2.4rem;
+    --site-page-partial-mobile-spacing-left-right: 1.6rem;
+    --site-page-partial-gap: 1.6rem;
+    --site-page-partial-border-radius: 0.4rem;
+    
+    /** Buttons */
+    --button-spacing-top-bottom: 1.2rem;
+    --button-spacing-left-right: 2.4rem;
+    --button-small-spacing-top-bottom: 0.8rem;
+    --button-small-spacing-left-right: 1.6rem;
+    --button-small-border-radius: 3.2rem;
+
+    /* Borders */
+    --border-radius-small: 0.4rem;
+    --border-radius-medium: 3.2rem;
+    --border-width: 0.1rem;
 }
