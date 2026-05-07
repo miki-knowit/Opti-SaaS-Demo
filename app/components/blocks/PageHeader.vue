@@ -16,10 +16,6 @@ defineProps<{
         } | null;
     };
 }>();
-
-function buttonClick() {
-    console.log('cta button clicked');
-}
 </script>
 
 <template>
@@ -40,7 +36,6 @@ function buttonClick() {
                 <button
                     v-if="pageHeader?.CTALink?.text"
                     class="page-header__button"
-                    @click="buttonClick"
                 >
                     {{ pageHeader.CTALink.text }}
                 </button>

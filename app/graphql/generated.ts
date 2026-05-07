@@ -833,6 +833,327 @@ export type FloatFilterInput = {
   notIn?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
+export type FooterBlock = IData & _IComponent & _IContent & _IItem & {
+  __typename?: 'FooterBlock';
+  ContentAreaForSocials?: Maybe<Array<Maybe<_IContent>>>;
+  ContentAreaGeneral?: Maybe<Array<Maybe<_IContent>>>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _itemMetadata?: Maybe<_Metadata>;
+  _json?: Maybe<Scalars['JSON']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type FooterBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type FooterBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type FooterBlockAutocomplete = {
+  __typename?: 'FooterBlockAutocomplete';
+  ContentAreaForSocials?: Maybe<_IContentAutocomplete>;
+  ContentAreaGeneral?: Maybe<_IContentAutocomplete>;
+  _itemMetadata?: Maybe<_MetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type FooterBlockFacet = {
+  __typename?: 'FooterBlockFacet';
+  ContentAreaForSocials?: Maybe<_IContentFacet>;
+  ContentAreaGeneral?: Maybe<_IContentFacet>;
+  _itemMetadata?: Maybe<_MetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type FooterBlockOrderByInput = {
+  ContentAreaForSocials?: InputMaybe<_IContentOrderByInput>;
+  ContentAreaGeneral?: InputMaybe<_IContentOrderByInput>;
+  _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type FooterBlockOutput = {
+  __typename?: 'FooterBlockOutput';
+  autocomplete?: Maybe<FooterBlockAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<FooterBlockFacet>;
+  item?: Maybe<FooterBlock>;
+  items?: Maybe<Array<Maybe<FooterBlock>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type FooterBlockOutputTotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type FooterBlockWhereInput = {
+  ContentAreaForSocials?: InputMaybe<_IContentWhereInput>;
+  ContentAreaGeneral?: InputMaybe<_IContentWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<FooterBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _itemMetadata?: InputMaybe<_MetadataWhereInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<FooterBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<FooterBlockWhereInput>>>;
+};
+
+export type FooterLinksGeneralBlock = IData & _IComponent & _IContent & _IItem & {
+  __typename?: 'FooterLinksGeneralBlock';
+  LinkList?: Maybe<Array<Maybe<Link>>>;
+  LinkListHeader?: Maybe<Scalars['String']['output']>;
+  TextField?: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _itemMetadata?: Maybe<_Metadata>;
+  _json?: Maybe<Scalars['JSON']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type FooterLinksGeneralBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type FooterLinksGeneralBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type FooterLinksGeneralBlockAutocomplete = {
+  __typename?: 'FooterLinksGeneralBlockAutocomplete';
+  LinkList?: Maybe<LinkAutocomplete>;
+  _itemMetadata?: Maybe<_MetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type FooterLinksGeneralBlockFacet = {
+  __typename?: 'FooterLinksGeneralBlockFacet';
+  LinkList?: Maybe<LinkFacet>;
+  _itemMetadata?: Maybe<_MetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type FooterLinksGeneralBlockOrderByInput = {
+  LinkList?: InputMaybe<LinkOrderByInput>;
+  _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type FooterLinksGeneralBlockOutput = {
+  __typename?: 'FooterLinksGeneralBlockOutput';
+  autocomplete?: Maybe<FooterLinksGeneralBlockAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<FooterLinksGeneralBlockFacet>;
+  item?: Maybe<FooterLinksGeneralBlock>;
+  items?: Maybe<Array<Maybe<FooterLinksGeneralBlock>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type FooterLinksGeneralBlockOutputTotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type FooterLinksGeneralBlockWhereInput = {
+  LinkList?: InputMaybe<LinkWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<FooterLinksGeneralBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _itemMetadata?: InputMaybe<_MetadataWhereInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<FooterLinksGeneralBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<FooterLinksGeneralBlockWhereInput>>>;
+};
+
+export type FooterSocials = IData & _IComponent & _IContent & _IItem & {
+  __typename?: 'FooterSocials';
+  Icon?: Maybe<ContentReference>;
+  Link?: Maybe<ContentUrl>;
+  Title?: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _itemMetadata?: Maybe<_Metadata>;
+  _json?: Maybe<Scalars['JSON']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type FooterSocials_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type FooterSocials_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type FooterSocialsAutocomplete = {
+  __typename?: 'FooterSocialsAutocomplete';
+  Icon?: Maybe<ContentReferenceAutocomplete>;
+  Link?: Maybe<ContentUrlAutocomplete>;
+  _itemMetadata?: Maybe<_MetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type FooterSocialsFacet = {
+  __typename?: 'FooterSocialsFacet';
+  Icon?: Maybe<ContentReferenceFacet>;
+  Link?: Maybe<ContentUrlFacet>;
+  _itemMetadata?: Maybe<_MetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type FooterSocialsOrderByInput = {
+  Icon?: InputMaybe<ContentReferenceOrderByInput>;
+  Link?: InputMaybe<ContentUrlOrderByInput>;
+  _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type FooterSocialsOutput = {
+  __typename?: 'FooterSocialsOutput';
+  autocomplete?: Maybe<FooterSocialsAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<FooterSocialsFacet>;
+  item?: Maybe<FooterSocials>;
+  items?: Maybe<Array<Maybe<FooterSocials>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type FooterSocialsOutputTotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type FooterSocialsWhereInput = {
+  Icon?: InputMaybe<ContentReferenceWhereInput>;
+  Link?: InputMaybe<ContentUrlWhereInput>;
+  _and?: InputMaybe<Array<InputMaybe<FooterSocialsWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _itemMetadata?: InputMaybe<_MetadataWhereInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<FooterSocialsWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<FooterSocialsWhereInput>>>;
+};
+
+export type FooterTextGeneralBlock = IData & _IComponent & _IContent & _IItem & {
+  __typename?: 'FooterTextGeneralBlock';
+  Header?: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _itemMetadata?: Maybe<_Metadata>;
+  _json?: Maybe<Scalars['JSON']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type FooterTextGeneralBlock_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type FooterTextGeneralBlock_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type FooterTextGeneralBlockAutocomplete = {
+  __typename?: 'FooterTextGeneralBlockAutocomplete';
+  _itemMetadata?: Maybe<_MetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type FooterTextGeneralBlockFacet = {
+  __typename?: 'FooterTextGeneralBlockFacet';
+  _itemMetadata?: Maybe<_MetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+export type FooterTextGeneralBlockOrderByInput = {
+  _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type FooterTextGeneralBlockOutput = {
+  __typename?: 'FooterTextGeneralBlockOutput';
+  autocomplete?: Maybe<FooterTextGeneralBlockAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<FooterTextGeneralBlockFacet>;
+  item?: Maybe<FooterTextGeneralBlock>;
+  items?: Maybe<Array<Maybe<FooterTextGeneralBlock>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type FooterTextGeneralBlockOutputTotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type FooterTextGeneralBlockWhereInput = {
+  _and?: InputMaybe<Array<InputMaybe<FooterTextGeneralBlockWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _itemMetadata?: InputMaybe<_MetadataWhereInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<FooterTextGeneralBlockWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<FooterTextGeneralBlockWhereInput>>>;
+};
+
 export type GenericMedia = IData & _IAssetItem & _IContent & _IItem & _IMedia & {
   __typename?: 'GenericMedia';
   _assetMetadata?: Maybe<_AssetMetadata>;
@@ -913,8 +1234,9 @@ export type GenericMediaWhereInput = {
 
 export type HeaderBlock = IData & _IComponent & _IContent & _IItem & {
   __typename?: 'HeaderBlock';
-  ImageBlock?: Maybe<ImageBlockProperty>;
-  Preamble?: Maybe<Scalars['String']['output']>;
+  Logo?: Maybe<ContentReference>;
+  NavLinks?: Maybe<Array<Maybe<Link>>>;
+  Text?: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
@@ -930,6 +1252,11 @@ export type HeaderBlock = IData & _IComponent & _IContent & _IItem & {
 };
 
 
+export type HeaderBlockTextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
 export type HeaderBlock_FulltextArgs = {
   highlight?: InputMaybe<HighlightOptions>;
 };
@@ -941,20 +1268,33 @@ export type HeaderBlock_LinkArgs = {
 
 export type HeaderBlockAutocomplete = {
   __typename?: 'HeaderBlockAutocomplete';
-  ImageBlock?: Maybe<ImageBlockPropertyAutocomplete>;
+  Logo?: Maybe<ContentReferenceAutocomplete>;
+  NavLinks?: Maybe<LinkAutocomplete>;
   _itemMetadata?: Maybe<_MetadataAutocomplete>;
   _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
 
 export type HeaderBlockFacet = {
   __typename?: 'HeaderBlockFacet';
-  ImageBlock?: Maybe<ImageBlockPropertyFacet>;
+  Logo?: Maybe<ContentReferenceFacet>;
+  NavLinks?: Maybe<LinkFacet>;
+  Text?: Maybe<Array<Maybe<StringFacet>>>;
   _itemMetadata?: Maybe<_MetadataFacet>;
   _metadata?: Maybe<IContentMetadataFacet>;
 };
 
+
+export type HeaderBlockFacetTextArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
 export type HeaderBlockOrderByInput = {
-  ImageBlock?: InputMaybe<ImageBlockPropertyOrderByInput>;
+  Logo?: InputMaybe<ContentReferenceOrderByInput>;
+  NavLinks?: InputMaybe<LinkOrderByInput>;
+  Text?: InputMaybe<OrderBy>;
   _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
   _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
@@ -979,32 +1319,10 @@ export type HeaderBlockOutputTotalArgs = {
   all?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type HeaderBlockProperty = {
-  __typename?: 'HeaderBlockProperty';
-  ImageBlock?: Maybe<ImageBlockProperty>;
-  Preamble?: Maybe<Scalars['String']['output']>;
-};
-
-export type HeaderBlockPropertyAutocomplete = {
-  __typename?: 'HeaderBlockPropertyAutocomplete';
-  ImageBlock?: Maybe<ImageBlockPropertyAutocomplete>;
-};
-
-export type HeaderBlockPropertyFacet = {
-  __typename?: 'HeaderBlockPropertyFacet';
-  ImageBlock?: Maybe<ImageBlockPropertyFacet>;
-};
-
-export type HeaderBlockPropertyOrderByInput = {
-  ImageBlock?: InputMaybe<ImageBlockPropertyOrderByInput>;
-};
-
-export type HeaderBlockPropertyWhereInput = {
-  ImageBlock?: InputMaybe<ImageBlockPropertyWhereInput>;
-};
-
 export type HeaderBlockWhereInput = {
-  ImageBlock?: InputMaybe<ImageBlockPropertyWhereInput>;
+  Logo?: InputMaybe<ContentReferenceWhereInput>;
+  NavLinks?: InputMaybe<LinkWhereInput>;
+  Text?: InputMaybe<SearchableStringFilterInput>;
   _and?: InputMaybe<Array<InputMaybe<HeaderBlockWhereInput>>>;
   _fulltext?: InputMaybe<SearchableStringFilterInput>;
   _itemMetadata?: InputMaybe<_MetadataWhereInput>;
@@ -1532,7 +1850,6 @@ export type ImageBlock = IData & _IComponent & _IContent & _IItem & {
   __typename?: 'ImageBlock';
   HeadingProp?: Maybe<Scalars['String']['output']>;
   ImageProp?: Maybe<ContentReference>;
-  PlaceImageRight?: Maybe<Scalars['Boolean']['output']>;
   /** @deprecated Use `_link` field instead */
   _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
@@ -1601,7 +1918,6 @@ export type ImageBlockProperty = {
   __typename?: 'ImageBlockProperty';
   HeadingProp?: Maybe<Scalars['String']['output']>;
   ImageProp?: Maybe<ContentReference>;
-  PlaceImageRight?: Maybe<Scalars['Boolean']['output']>;
 };
 
 export type ImageBlockPropertyAutocomplete = {
@@ -1795,9 +2111,80 @@ export type ItemMetadataDisplayNameArgs = {
   highlight?: InputMaybe<HighlightOptions>;
 };
 
+export type Link = {
+  __typename?: 'Link';
+  target?: Maybe<Scalars['String']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<ContentUrl>;
+};
+
+
+export type LinkTextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+export type LinkAutocomplete = {
+  __typename?: 'LinkAutocomplete';
+  target?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  title?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  url?: Maybe<ContentUrlAutocomplete>;
+};
+
+
+export type LinkAutocompleteTargetArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LinkAutocompleteTitleArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
 export type LinkConfig = {
   from?: InputMaybe<Scalars['String']['input']>;
   to?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LinkFacet = {
+  __typename?: 'LinkFacet';
+  target?: Maybe<Array<Maybe<StringFacet>>>;
+  text?: Maybe<Array<Maybe<StringFacet>>>;
+  title?: Maybe<Array<Maybe<StringFacet>>>;
+  url?: Maybe<ContentUrlFacet>;
+};
+
+
+export type LinkFacetTargetArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LinkFacetTextArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LinkFacetTitleArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type LinkOrderByInput = {
+  target?: InputMaybe<OrderBy>;
+  text?: InputMaybe<OrderBy>;
+  title?: InputMaybe<OrderBy>;
+  url?: InputMaybe<ContentUrlOrderByInput>;
 };
 
 export enum LinkTypes {
@@ -1834,6 +2221,13 @@ export enum LinkTypes {
    */
   Path = 'PATH'
 }
+
+export type LinkWhereInput = {
+  target?: InputMaybe<StringFilterInput>;
+  text?: InputMaybe<SearchableStringFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  url?: InputMaybe<ContentUrlWhereInput>;
+};
 
 export enum Locales {
   All = 'ALL',
@@ -1902,6 +2296,187 @@ export enum OrderByFacetType {
   Value = 'VALUE'
 }
 
+export type PageHeader = IData & _IComponent & _IContent & _IItem & {
+  __typename?: 'PageHeader';
+  CTALink?: Maybe<Link>;
+  CTAText?: Maybe<Scalars['String']['output']>;
+  Header?: Maybe<Scalars['String']['output']>;
+  Image?: Maybe<ContentReference>;
+  Preamble?: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children?: Maybe<QueryRef>;
+  _deleted?: Maybe<Scalars['Bool']['output']>;
+  _fulltext?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id?: Maybe<Scalars['String']['output']>;
+  _itemMetadata?: Maybe<_Metadata>;
+  _json?: Maybe<Scalars['JSON']['output']>;
+  _link?: Maybe<QueryRef>;
+  _metadata?: Maybe<IContentMetadata>;
+  _modified?: Maybe<Scalars['Date']['output']>;
+  _score?: Maybe<Scalars['Float']['output']>;
+  _track?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PageHeaderHeaderArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type PageHeaderPreambleArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type PageHeader_FulltextArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type PageHeader_LinkArgs = {
+  type?: InputMaybe<LinkTypes>;
+};
+
+export type PageHeaderAutocomplete = {
+  __typename?: 'PageHeaderAutocomplete';
+  CTALink?: Maybe<LinkAutocomplete>;
+  Image?: Maybe<ContentReferenceAutocomplete>;
+  _itemMetadata?: Maybe<_MetadataAutocomplete>;
+  _metadata?: Maybe<IContentMetadataAutocomplete>;
+};
+
+export type PageHeaderFacet = {
+  __typename?: 'PageHeaderFacet';
+  CTALink?: Maybe<LinkFacet>;
+  Header?: Maybe<Array<Maybe<StringFacet>>>;
+  Image?: Maybe<ContentReferenceFacet>;
+  Preamble?: Maybe<Array<Maybe<StringFacet>>>;
+  _itemMetadata?: Maybe<_MetadataFacet>;
+  _metadata?: Maybe<IContentMetadataFacet>;
+};
+
+
+export type PageHeaderFacetHeaderArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PageHeaderFacetPreambleArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type PageHeaderOrderByInput = {
+  CTALink?: InputMaybe<LinkOrderByInput>;
+  Header?: InputMaybe<OrderBy>;
+  Image?: InputMaybe<ContentReferenceOrderByInput>;
+  Preamble?: InputMaybe<OrderBy>;
+  _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
+  _metadata?: InputMaybe<IContentMetadataOrderByInput>;
+  _minimumScore?: InputMaybe<Scalars['Float']['input']>;
+  _modified?: InputMaybe<OrderBy>;
+  _ranking?: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type PageHeaderOutput = {
+  __typename?: 'PageHeaderOutput';
+  autocomplete?: Maybe<PageHeaderAutocomplete>;
+  cursor?: Maybe<Scalars['String']['output']>;
+  facets?: Maybe<PageHeaderFacet>;
+  item?: Maybe<PageHeader>;
+  items?: Maybe<Array<Maybe<PageHeader>>>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type PageHeaderOutputTotalArgs = {
+  all?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type PageHeaderProperty = {
+  __typename?: 'PageHeaderProperty';
+  CTALink?: Maybe<Link>;
+  CTAText?: Maybe<Scalars['String']['output']>;
+  Header?: Maybe<Scalars['String']['output']>;
+  Image?: Maybe<ContentReference>;
+  Preamble?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PageHeaderPropertyHeaderArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+
+export type PageHeaderPropertyPreambleArgs = {
+  highlight?: InputMaybe<HighlightOptions>;
+};
+
+export type PageHeaderPropertyAutocomplete = {
+  __typename?: 'PageHeaderPropertyAutocomplete';
+  CTALink?: Maybe<LinkAutocomplete>;
+  Image?: Maybe<ContentReferenceAutocomplete>;
+};
+
+export type PageHeaderPropertyFacet = {
+  __typename?: 'PageHeaderPropertyFacet';
+  CTALink?: Maybe<LinkFacet>;
+  Header?: Maybe<Array<Maybe<StringFacet>>>;
+  Image?: Maybe<ContentReferenceFacet>;
+  Preamble?: Maybe<Array<Maybe<StringFacet>>>;
+};
+
+
+export type PageHeaderPropertyFacetHeaderArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PageHeaderPropertyFacetPreambleArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type PageHeaderPropertyOrderByInput = {
+  CTALink?: InputMaybe<LinkOrderByInput>;
+  Header?: InputMaybe<OrderBy>;
+  Image?: InputMaybe<ContentReferenceOrderByInput>;
+  Preamble?: InputMaybe<OrderBy>;
+};
+
+export type PageHeaderPropertyWhereInput = {
+  CTALink?: InputMaybe<LinkWhereInput>;
+  Header?: InputMaybe<SearchableStringFilterInput>;
+  Image?: InputMaybe<ContentReferenceWhereInput>;
+  Preamble?: InputMaybe<SearchableStringFilterInput>;
+};
+
+export type PageHeaderWhereInput = {
+  CTALink?: InputMaybe<LinkWhereInput>;
+  Header?: InputMaybe<SearchableStringFilterInput>;
+  Image?: InputMaybe<ContentReferenceWhereInput>;
+  Preamble?: InputMaybe<SearchableStringFilterInput>;
+  _and?: InputMaybe<Array<InputMaybe<PageHeaderWhereInput>>>;
+  _fulltext?: InputMaybe<SearchableStringFilterInput>;
+  _itemMetadata?: InputMaybe<_MetadataWhereInput>;
+  _metadata?: InputMaybe<IContentMetadataWhereInput>;
+  _modified?: InputMaybe<DateFilterInput>;
+  _not?: InputMaybe<Array<InputMaybe<PageHeaderWhereInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<PageHeaderWhereInput>>>;
+};
+
 export type PinnedInput = {
   /** Pinned collection keys */
   collections?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1914,10 +2489,15 @@ export type Query = {
   BlankSection?: Maybe<BlankSectionOutput>;
   CommonPage?: Maybe<CommonPageOutput>;
   Data?: Maybe<DataOutput>;
+  FooterBlock?: Maybe<FooterBlockOutput>;
+  FooterLinksGeneralBlock?: Maybe<FooterLinksGeneralBlockOutput>;
+  FooterSocials?: Maybe<FooterSocialsOutput>;
+  FooterTextGeneralBlock?: Maybe<FooterTextGeneralBlockOutput>;
   GenericMedia?: Maybe<GenericMediaOutput>;
   HeaderBlock?: Maybe<HeaderBlockOutput>;
   ImageBlock?: Maybe<ImageBlockOutput>;
   ImageMedia?: Maybe<ImageMediaOutput>;
+  PageHeader?: Maybe<PageHeaderOutput>;
   SectionBlock?: Maybe<SectionBlockOutput>;
   StartPage?: Maybe<StartPageOutput>;
   SysContentFolder?: Maybe<SysContentFolderOutput>;
@@ -1995,6 +2575,62 @@ export type QueryDataArgs = {
 };
 
 
+export type QueryFooterBlockArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<FooterBlockOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<FooterBlockWhereInput>;
+};
+
+
+export type QueryFooterLinksGeneralBlockArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<FooterLinksGeneralBlockOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<FooterLinksGeneralBlockWhereInput>;
+};
+
+
+export type QueryFooterSocialsArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<FooterSocialsOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<FooterSocialsWhereInput>;
+};
+
+
+export type QueryFooterTextGeneralBlockArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<FooterTextGeneralBlockOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<FooterTextGeneralBlockWhereInput>;
+};
+
+
 export type QueryGenericMediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2048,6 +2684,20 @@ export type QueryImageMediaArgs = {
   tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<ImageMediaWhereInput>;
+};
+
+
+export type QueryPageHeaderArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<PageHeaderOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<PageHeaderWhereInput>;
 };
 
 
@@ -2308,10 +2958,15 @@ export type QueryRef = {
   BlankSection?: Maybe<BlankSectionOutput>;
   CommonPage?: Maybe<CommonPageOutput>;
   Data?: Maybe<DataOutput>;
+  FooterBlock?: Maybe<FooterBlockOutput>;
+  FooterLinksGeneralBlock?: Maybe<FooterLinksGeneralBlockOutput>;
+  FooterSocials?: Maybe<FooterSocialsOutput>;
+  FooterTextGeneralBlock?: Maybe<FooterTextGeneralBlockOutput>;
   GenericMedia?: Maybe<GenericMediaOutput>;
   HeaderBlock?: Maybe<HeaderBlockOutput>;
   ImageBlock?: Maybe<ImageBlockOutput>;
   ImageMedia?: Maybe<ImageMediaOutput>;
+  PageHeader?: Maybe<PageHeaderOutput>;
   SectionBlock?: Maybe<SectionBlockOutput>;
   StartPage?: Maybe<StartPageOutput>;
   SysContentFolder?: Maybe<SysContentFolderOutput>;
@@ -2389,6 +3044,62 @@ export type QueryRefDataArgs = {
 };
 
 
+export type QueryRefFooterBlockArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<FooterBlockOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<FooterBlockWhereInput>;
+};
+
+
+export type QueryRefFooterLinksGeneralBlockArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<FooterLinksGeneralBlockOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<FooterLinksGeneralBlockWhereInput>;
+};
+
+
+export type QueryRefFooterSocialsArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<FooterSocialsOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<FooterSocialsWhereInput>;
+};
+
+
+export type QueryRefFooterTextGeneralBlockArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<FooterTextGeneralBlockOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<FooterTextGeneralBlockWhereInput>;
+};
+
+
 export type QueryRefGenericMediaArgs = {
   cursor?: InputMaybe<Scalars['String']['input']>;
   ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2442,6 +3153,20 @@ export type QueryRefImageMediaArgs = {
   tracking?: InputMaybe<TrackingInput>;
   variation?: InputMaybe<VariationInput>;
   where?: InputMaybe<ImageMediaWhereInput>;
+};
+
+
+export type QueryRefPageHeaderArgs = {
+  cursor?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale?: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy?: InputMaybe<PageHeaderOrderByInput>;
+  pinned?: InputMaybe<PinnedInput>;
+  skip?: Scalars['Int']['input'];
+  tracking?: InputMaybe<TrackingInput>;
+  variation?: InputMaybe<VariationInput>;
+  where?: InputMaybe<PageHeaderWhereInput>;
 };
 
 
@@ -2887,8 +3612,7 @@ export type SectionBlockWhereInput = {
 export type StartPage = IData & _IContent & _IItem & _IPage & {
   __typename?: 'StartPage';
   ContentAreaProp?: Maybe<Array<Maybe<_IContent>>>;
-  HeaderBlock?: Maybe<HeaderBlockProperty>;
-  TextProp?: Maybe<RichText>;
+  PageHeader?: Maybe<PageHeaderProperty>;
   /** @deprecated Use `_link` field instead */
   _children?: Maybe<QueryRef>;
   _deleted?: Maybe<Scalars['Bool']['output']>;
@@ -2916,8 +3640,7 @@ export type StartPage_LinkArgs = {
 export type StartPageAutocomplete = {
   __typename?: 'StartPageAutocomplete';
   ContentAreaProp?: Maybe<_IContentAutocomplete>;
-  HeaderBlock?: Maybe<HeaderBlockPropertyAutocomplete>;
-  TextProp?: Maybe<RichTextAutocomplete>;
+  PageHeader?: Maybe<PageHeaderPropertyAutocomplete>;
   _itemMetadata?: Maybe<_MetadataAutocomplete>;
   _metadata?: Maybe<IContentMetadataAutocomplete>;
 };
@@ -2925,16 +3648,14 @@ export type StartPageAutocomplete = {
 export type StartPageFacet = {
   __typename?: 'StartPageFacet';
   ContentAreaProp?: Maybe<_IContentFacet>;
-  HeaderBlock?: Maybe<HeaderBlockPropertyFacet>;
-  TextProp?: Maybe<RichTextFacet>;
+  PageHeader?: Maybe<PageHeaderPropertyFacet>;
   _itemMetadata?: Maybe<_MetadataFacet>;
   _metadata?: Maybe<IContentMetadataFacet>;
 };
 
 export type StartPageOrderByInput = {
   ContentAreaProp?: InputMaybe<_IContentOrderByInput>;
-  HeaderBlock?: InputMaybe<HeaderBlockPropertyOrderByInput>;
-  TextProp?: InputMaybe<RichTextOrderByInput>;
+  PageHeader?: InputMaybe<PageHeaderPropertyOrderByInput>;
   _itemMetadata?: InputMaybe<_MetadataOrderByInput>;
   _metadata?: InputMaybe<IContentMetadataOrderByInput>;
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
@@ -2961,8 +3682,7 @@ export type StartPageOutputTotalArgs = {
 
 export type StartPageWhereInput = {
   ContentAreaProp?: InputMaybe<_IContentWhereInput>;
-  HeaderBlock?: InputMaybe<HeaderBlockPropertyWhereInput>;
-  TextProp?: InputMaybe<RichTextWhereInput>;
+  PageHeader?: InputMaybe<PageHeaderPropertyWhereInput>;
   _and?: InputMaybe<Array<InputMaybe<StartPageWhereInput>>>;
   _fulltext?: InputMaybe<SearchableStringFilterInput>;
   _itemMetadata?: InputMaybe<_MetadataWhereInput>;
@@ -3188,6 +3908,7 @@ export type TextImageBlock = IData & _IComponent & _IContent & _IItem & {
   __typename?: 'TextImageBlock';
   HeadingProp?: Maybe<Scalars['String']['output']>;
   ImageBlock?: Maybe<ImageBlockProperty>;
+  PlaceImageRight?: Maybe<Scalars['Boolean']['output']>;
   TextBlock?: Maybe<TextBlockProperty>;
   /** @deprecated Use `_link` field instead */
   _children?: Maybe<QueryRef>;
@@ -4835,30 +5556,106 @@ export type UsePinnedInput = {
   phrase?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type StartPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type FooterBlockQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typename?: 'StartPageOutput', items?: Array<{ __typename?: 'StartPage', TextProp?: { __typename?: 'RichText', html?: string | null } | null, HeaderBlock?: { __typename?: 'HeaderBlockProperty', Preamble?: string | null, ImageBlock?: { __typename?: 'ImageBlockProperty', HeadingProp?: string | null, PlaceImageRight?: boolean | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null } | null } | null, ContentAreaProp?: Array<
+export type FooterBlockQuery = { __typename?: 'Query', FooterBlock?: { __typename?: 'FooterBlockOutput', items?: Array<{ __typename?: 'FooterBlock', ContentAreaGeneral?: Array<
         | { __typename: 'BlankExperience' }
         | { __typename: 'BlankSection' }
         | { __typename: 'CommonPage' }
+        | { __typename: 'FooterBlock' }
+        | { __typename: 'FooterLinksGeneralBlock', LinkListHeader?: string | null, TextField?: string | null, LinkList?: Array<{ __typename?: 'Link', text?: string | null, title?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null> | null }
+        | { __typename: 'FooterSocials' }
+        | { __typename: 'FooterTextGeneralBlock' }
         | { __typename: 'GenericMedia' }
         | { __typename: 'HeaderBlock' }
         | { __typename: 'ImageBlock' }
         | { __typename: 'ImageMedia' }
-        | { __typename: 'SectionBlock', HeadingProp?: string | null, ContentAreaProp?: Array<
+        | { __typename: 'PageHeader' }
+        | { __typename: 'SectionBlock' }
+        | { __typename: 'StartPage' }
+        | { __typename: 'SysContentFolder' }
+        | { __typename: 'TextBlock' }
+        | { __typename: 'TextImageBlock' }
+        | { __typename: 'VideoMedia' }
+        | { __typename: '_Component' }
+        | { __typename: '_Content' }
+        | { __typename: '_Experience' }
+        | { __typename: '_Folder' }
+        | { __typename: '_Image' }
+        | { __typename: '_Media' }
+        | { __typename: '_Page' }
+        | { __typename: '_Section' }
+        | { __typename: '_Video' }
+       | null> | null, ContentAreaForSocials?: Array<
+        | { __typename: 'BlankExperience' }
+        | { __typename: 'BlankSection' }
+        | { __typename: 'CommonPage' }
+        | { __typename: 'FooterBlock' }
+        | { __typename: 'FooterLinksGeneralBlock' }
+        | { __typename: 'FooterSocials', Title?: string | null, Icon?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, Link?: { __typename?: 'ContentUrl', default?: string | null } | null }
+        | { __typename: 'FooterTextGeneralBlock' }
+        | { __typename: 'GenericMedia' }
+        | { __typename: 'HeaderBlock' }
+        | { __typename: 'ImageBlock' }
+        | { __typename: 'ImageMedia' }
+        | { __typename: 'PageHeader' }
+        | { __typename: 'SectionBlock' }
+        | { __typename: 'StartPage' }
+        | { __typename: 'SysContentFolder' }
+        | { __typename: 'TextBlock' }
+        | { __typename: 'TextImageBlock' }
+        | { __typename: 'VideoMedia' }
+        | { __typename: '_Component' }
+        | { __typename: '_Content' }
+        | { __typename: '_Experience' }
+        | { __typename: '_Folder' }
+        | { __typename: '_Image' }
+        | { __typename: '_Media' }
+        | { __typename: '_Page' }
+        | { __typename: '_Section' }
+        | { __typename: '_Video' }
+       | null> | null } | null> | null } | null };
+
+export type HeaderBlockQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HeaderBlockQuery = { __typename?: 'Query', HeaderBlock?: { __typename?: 'HeaderBlockOutput', items?: Array<{ __typename?: 'HeaderBlock', Logo?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, NavLinks?: Array<{ __typename?: 'Link', text?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null> | null } | null> | null } | null };
+
+export type StartPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StartPageQuery = { __typename?: 'Query', StartPage?: { __typename?: 'StartPageOutput', items?: Array<{ __typename?: 'StartPage', PageHeader?: { __typename?: 'PageHeaderProperty', Header?: string | null, Preamble?: string | null, Image?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null, CTALink?: { __typename?: 'Link', text?: string | null, url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null } | null, ContentAreaProp?: Array<
+        | { __typename: 'BlankExperience' }
+        | { __typename: 'BlankSection' }
+        | { __typename: 'CommonPage' }
+        | { __typename: 'FooterBlock' }
+        | { __typename: 'FooterLinksGeneralBlock' }
+        | { __typename: 'FooterSocials' }
+        | { __typename: 'FooterTextGeneralBlock' }
+        | { __typename: 'GenericMedia' }
+        | { __typename: 'HeaderBlock' }
+        | { __typename: 'ImageBlock' }
+        | { __typename: 'ImageMedia' }
+        | { __typename: 'PageHeader' }
+        | { __typename: 'SectionBlock', ContentAreaProp?: Array<
             | { __typename: 'BlankExperience' }
             | { __typename: 'BlankSection' }
             | { __typename: 'CommonPage' }
+            | { __typename: 'FooterBlock' }
+            | { __typename: 'FooterLinksGeneralBlock' }
+            | { __typename: 'FooterSocials' }
+            | { __typename: 'FooterTextGeneralBlock' }
             | { __typename: 'GenericMedia' }
             | { __typename: 'HeaderBlock' }
             | { __typename: 'ImageBlock' }
             | { __typename: 'ImageMedia' }
+            | { __typename: 'PageHeader' }
             | { __typename: 'SectionBlock' }
             | { __typename: 'StartPage' }
             | { __typename: 'SysContentFolder' }
             | { __typename: 'TextBlock' }
-            | { __typename: 'TextImageBlock', HeadingProp?: string | null, TextBlock?: { __typename?: 'TextBlockProperty', TextProp?: { __typename?: 'RichText', html?: string | null } | null } | null, ImageBlock?: { __typename?: 'ImageBlockProperty', HeadingProp?: string | null, PlaceImageRight?: boolean | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null } | null }
+            | { __typename: 'TextImageBlock', HeadingProp?: string | null, PlaceImageRight?: boolean | null, TextBlock?: { __typename?: 'TextBlockProperty', TextProp?: { __typename?: 'RichText', html?: string | null } | null } | null, ImageBlock?: { __typename?: 'ImageBlockProperty', HeadingProp?: string | null, ImageProp?: { __typename?: 'ContentReference', url?: { __typename?: 'ContentUrl', default?: string | null } | null } | null } | null }
             | { __typename: 'VideoMedia' }
             | { __typename: '_Component' }
             | { __typename: '_Content' }
@@ -4887,4 +5684,6 @@ export type StartPageQueryQuery = { __typename?: 'Query', StartPage?: { __typena
        | null> | null } | null> | null } | null };
 
 
-export const StartPageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StartPageQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"StartPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}},{"kind":"Field","name":{"kind":"Name","value":"HeaderBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Preamble"}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SectionBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StartPageQueryQuery, StartPageQueryQueryVariables>;
+export const FooterBlockDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FooterBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"FooterBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"ContentAreaGeneral"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"FooterLinksGeneralBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"LinkListHeader"}},{"kind":"Field","name":{"kind":"Name","value":"LinkList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"TextField"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaForSocials"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"FooterSocials"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"Link"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}},{"kind":"Field","name":{"kind":"Name","value":"Title"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<FooterBlockQuery, FooterBlockQueryVariables>;
+export const HeaderBlockDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HeaderBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeaderBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"NavLinks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<HeaderBlockQuery, HeaderBlockQueryVariables>;
+export const StartPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StartPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"StartPage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"PageHeader"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"Header"}},{"kind":"Field","name":{"kind":"Name","value":"Preamble"}},{"kind":"Field","name":{"kind":"Name","value":"CTALink"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SectionBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"ContentAreaProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"TextBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"ImageBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"HeadingProp"}},{"kind":"Field","name":{"kind":"Name","value":"ImageProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"default"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PlaceImageRight"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextBlock"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"TextProp"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StartPageQuery, StartPageQueryVariables>;
