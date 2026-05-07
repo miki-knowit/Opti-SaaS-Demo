@@ -33,10 +33,7 @@ defineProps<{
                 <h3 v-if="pageHeader.Preamble" class="page-header__preamble base-large">
                     {{ pageHeader.Preamble }}
                 </h3>
-                <button
-                    v-if="pageHeader?.CTALink?.text"
-                    class="page-header__button"
-                >
+                <button v-if="pageHeader?.CTALink?.text" class="page-header__button">
                     {{ pageHeader.CTALink.text }}
                 </button>
             </div>

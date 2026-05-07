@@ -47,9 +47,9 @@ table {
 
 // Forms
 button,
-[type="button"],
-[type="submit"],
-[type="reset"] {
+[type='button'],
+[type='submit'],
+[type='reset'] {
     cursor: pointer;
 }
 
@@ -91,7 +91,7 @@ textarea {
 
 // Hide elements visually
 .sr-only:not(:focus):not(:active) {
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     border: 0;
     height: 1px;
     margin: -1px;
@@ -103,10 +103,10 @@ textarea {
 }
 
 // Optimizely helper override
-ul#epi-quickNavigator .epi-quickNavigator-editLink a span{
+ul#epi-quickNavigator .epi-quickNavigator-editLink a span {
     display: none;
 }
-ul#epi-quickNavigator{
+ul#epi-quickNavigator {
     top: 20%;
     right: 0;
 }
