@@ -22,7 +22,6 @@ defineProps<{
     <header class="page-header--start-page">
         <div v-if="pageHeader.Image?.url?.default" class="page-header__media-container">
             <img :src="pageHeader.Image.url.default" alt="Graphic Element Gradient" />
-            <div class="page-header__image-gradient" />
         </div>
 
         <div class="page-header__text-container-wrapper">
@@ -101,7 +100,7 @@ defineProps<{
         position: absolute;
         inset: 0;
         width: 100%;
-        height: 880px;
+        // height: 880px;
         object-fit: cover;
     }
 }

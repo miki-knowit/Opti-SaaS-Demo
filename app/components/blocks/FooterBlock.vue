@@ -75,7 +75,7 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
         </div>
 
         <div v-if="footerSocials.length" class="footer__social-list base">
-            <h3 v-if="socialsHeader" class="footer__socials-header heading-xs">
+            <h3 v-if="socialsHeader" class="footer__socials-header base-large">
                 {{ socialsHeader }}
             </h3>
             <ul>
