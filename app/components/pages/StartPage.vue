@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { SectionBlockItem, StartPageData } from '~/graphql/start-page.types';
-import SectionBlock from '../blocks/SectionBlock.vue';
+import type { StartPageData } from '~/graphql/start-page.types';
 import PageHeader from '../blocks/PageHeader.vue';
+import ContentAreaRenderer from '../utils/ContentAreaRenderer.vue';
 
 const { data, status, error } = await useFetch<StartPageData>('/api/start-page');
 
@@ -10,17 +10,8 @@ const { data, status, error } = await useFetch<StartPageData>('/api/start-page')
 // the first StartPage item in the collection.
 const startPage = computed(() => data.value?.StartPage?.items?.[0] ?? null);
 const hasStartPage = computed(() => !!startPage.value);
-
 const pageHeader = computed(() => startPage.value?.PageHeader ?? null);
-
 const contentArea = computed(() => startPage.value?.ContentAreaProp ?? []);
-
-// Filter and collect ContentArea blocks by type for rendering.
-const sectionBlocks = computed(() =>
-    contentArea.value.filter(
-        (item): item is SectionBlockItem => item?.__typename === 'SectionBlock',
-    ),
-);
 </script>
 
 <template>
@@ -30,10 +21,6 @@ const sectionBlocks = computed(() =>
 
         <PageHeader v-if="pageHeader" :page-header="pageHeader" />
 
-        <SectionBlock
-            v-for="(item, index) in sectionBlocks"
-            :key="`section-${index}`"
-            :section-block="item"
-        />
+        <ContentAreaRenderer :items="contentArea" />
     </div>
 </template>

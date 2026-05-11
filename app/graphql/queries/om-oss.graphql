@@ -1,36 +1,25 @@
-query StartPage {
-    StartPage {
+query OmOss {
+    CommonPage(where: { _metadata: { url: { default: { eq: "/en/om-oss/" } } } }) {
         items {
-            PageHeader {
-                Image {
-                    url {
-                        default
-                    }
-                }
-                Header
-                Preamble
-                CTALink {
-                    text
-                    url {
-                        default
-                    }
+            HeaderProp
+            PreambleProp
+            ImageProp {
+                url {
+                    default
                 }
             }
             ContentAreaProp {
                 __typename
                 ... on SectionBlock {
-                    HeadingProp
                     ContentAreaProp {
                         __typename
                         ... on TextImageBlock {
-                            HeadingProp
                             TextBlock {
                                 TextProp {
                                     html
                                 }
                             }
                             ImageBlock {
-                                HeadingProp
                                 ImageProp {
                                     url {
                                         default
@@ -39,11 +28,6 @@ query StartPage {
                             }
                             PlaceImageRight
                         }
-                    }
-                }
-                ... on TextBlock {
-                    TextProp {
-                        html
                     }
                 }
             }
