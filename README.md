@@ -1,75 +1,119 @@
-# Nuxt Minimal Starter
+# Optimizely CMS 12 SaaS with a Vue frontend - demo application
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Demo application built with Nuxt.js, TypeScript and GraphQL (via Optimizely Graph).
 
-## Setup
+This is first and foremost a PoC, not a finalized production architecture.
+This project is intended as a demo application to be used by developers within Knowit Experience, to demonstrate the general functionality of an application using the SaaS version of the Optimizely CMS. Content is fetched with GraphQL as the query language and Nuxt handles the routing & rendering of Vue components.
 
-Make sure to install dependencies:
+  <details>
+  <summary>Table of Contents</summary>
 
-```bash
-# npm
+- [Current Limitations](#current-limitations)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Updating CMS Content and Types](#updating-and-adding-new-content-in-the-cms)
+- [Data Flow](#data-flow)
+- [Project Structure](#project-structure)
+
+</details>
+
+## Current Limitations
+
+- `CommonPage` currently does not use the shared `PageHeader` component like `StartPage` does. The `/en/om-oss` page renders its header, preamble, image and hero background directly in `OmOss.vue`.
+- Some components (e.g. `FooterBlock.vue`) have a lot of scoped styling, which is _not_ desired. It is temporary styling to simulate the Figma sketches.
+
+## Tech Stack
+
+- Nuxt 4
+- Vue 3
+- TypeScript
+- SCSS
+- GraphQL
+
+## Prerequisites
+
+- Node.js
+- npm
+- A license for the SaaS version of Optimizely CMS.
+
+Create a `.env` file with the API-key from CMS. It can be found at:
+`Settings -> API Keys -> Delivery Keys -> Address + Single Key`
+
+```env
+ENVIRONMENT_VARIABLE_NAME=https://cg.optimizely.com/content/v2?auth=YOUR_SINGLE_KEY
+```
+
+## Getting Started
+
+Install dependencies:
+
+```
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+Run the application:
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+```
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+By default the app runs on port 3000.
 
-Build the application for production:
+```txt
+http://localhost:3000
+```
+
+## Updating And Adding New Content In The CMS
+
+When changing or adding content types in the CMS, always make sure Optimizely Graph is synchronized before regenerating frontend types or testing queries.
+
+1. In Optimizely, run:
+
+`Settings -> Data & Sync Management -> Scheduled Jobs -> Start a Optimizely Graph Full Synchronization`
+
+2. Regenerate GraphQL TypeScript types (`/app/graphql/generated.ts`):
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npm run generate:graphql
 ```
 
-Locally preview production build:
+Generated types are written to:
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+```txt
+app/graphql/generated.ts
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Data Flow
+
+Vue components do not query Optimizely Graph directly. They fetch data through local Nuxt API routes.
+
+```txt
+Vue component
+  -> /api/<endpoint>
+  -> server/utils/optimizely-graph.ts
+  -> Optimizely Graph
+```
+
+GraphQL queries and generated TypeScript types live in:
+
+```txt
+app/graphql/
+```
+
+## Project Structure
+
+```
+app/
+assets/ Global styling, SCSS
+components/ Vue components for CMS pages and blocks respectively
+components/utils Helper functions
+graphql/ GraphQL documents and generated TypeScript types
+pages/ Nuxt route entrypoints
+
+server/
+api/ Nuxt server routes used by the frontend
+utils/ Shared server-side utilities, including Optimizely Graph access
+
+public/* Public static assets (icons, fonts, images - assets that are not requested from the CMS)
+```
