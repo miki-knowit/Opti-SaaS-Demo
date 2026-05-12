@@ -13,6 +13,9 @@ defineProps<{
         <SectionBlock v-if="item?.__typename === 'SectionBlock'" :section-block="item" />
         <TextImageBlock v-else-if="item?.__typename === 'TextImageBlock'" :block="item" />
         <TextBlock v-else-if="item?.__typename === 'TextBlock'" :text-block="item" />
-        <!-- Placeholder for site page partials (e.g. Contact Page Block) -->
+        <SitePagePartialBlock
+            v-else-if="item?.__typename === 'CommonPage' && item?._metadata?.url?.default"
+            :page="item"
+        />
     </template>
 </template>

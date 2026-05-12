@@ -13,6 +13,10 @@ query OmOss {
                 ... on SectionBlock {
                     ContentAreaProp {
                         __typename
+                        ... on CommonPage {
+                            ...SitePagePartialFields
+                        }
+                        __typename
                         ... on TextImageBlock {
                             TextBlock {
                                 TextProp {

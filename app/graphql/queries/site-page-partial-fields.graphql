@@ -1,0 +1,15 @@
+fragment SitePagePartialFields on CommonPage {
+    HeaderProp
+    PreambleProp
+    ImageProp {
+        url {
+            default
+        }
+    }
+    __typename
+    _metadata {
+        url {
+            default
+        }
+    }
+}
