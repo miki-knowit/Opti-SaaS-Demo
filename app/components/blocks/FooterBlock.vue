@@ -24,7 +24,7 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
 
         <div class="footer__logos">
             <figure class="footer__main-logo">
-                <img src="/logo_horizontal.svg" alt="logo" />
+                <img src="/icons/logo_horizontal.svg" alt="logo" />
             </figure>
         </div>
 
@@ -136,7 +136,9 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
             flex-direction: column;
             flex: 1;
             gap: var(--spacing-xxs);
-            color: white; // text is not styled on a default level (color, e.g. adress & kontakt)
+            color: var(
+                --palette-color-white-100
+            ); // text is not styled on a default level (color, e.g. adress & kontakt)
         }
     }
 

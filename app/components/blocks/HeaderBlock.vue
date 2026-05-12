@@ -128,6 +128,7 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
     }
 
     &__nav {
+        font-family: var(--font-family-base);
         grid-column: 2;
         display: flex;
         justify-content: center;
