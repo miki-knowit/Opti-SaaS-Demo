@@ -43,14 +43,18 @@ defineProps<{
     &__image {
         border-radius: 75px;
         height: 400px;
-        width: 400px;
+        width: 476px;
     }
 
     &--arrow-icon {
+        display: inline-flex;
         width: 32px;
         height: 32px;
-        border-radius: 0;
-        max-width: fit-content;
+        transition: transform 0.15s ease-in-out;
+
+        &:hover {
+            transform: translateX(4px);
+        }
     }
 }
 </style>
