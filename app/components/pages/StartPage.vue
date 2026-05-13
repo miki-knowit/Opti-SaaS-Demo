@@ -1,10 +1,23 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { StartPageData } from '~/graphql/start-page.types';
+import type { StartPageQuery } from '~/graphql/generated';
 import PageHeader from '../blocks/PageHeader.vue';
 import ContentAreaRenderer from '../utils/ContentAreaRenderer.vue';
 
-const { data, status, error } = await useFetch<StartPageData>('/api/start-page');
+const label = 'startpage';
+const start = performance.now();
+
+if (import.meta.server) {
+    console.log(`[SSR] ${label} START ${Math.round(start)}ms`);
+}
+
+const { data, status, error } = await useFetch<StartPageQuery>('/api/start-page');
+
+const end = performance.now();
+
+if (import.meta.server) {
+    console.log(`[SSR] ${label} END ${Math.round(end)}ms took ${Math.round(end - start)}ms`);
+}
 
 // The API returns the GraphQL query result shape, so the page content lives on
 // the first StartPage item in the collection.

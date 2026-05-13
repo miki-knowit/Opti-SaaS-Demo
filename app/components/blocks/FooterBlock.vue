@@ -2,7 +2,18 @@
 import { computed } from 'vue';
 import type { FooterBlockQuery } from '~/graphql/generated';
 
+const label = 'footer';
+const start = performance.now();
+if (import.meta.server) {
+    console.log(`[SSR] ${label} START ${Math.round(start)}ms`);
+}
 const { data } = await useFetch<FooterBlockQuery>('/api/footer-block');
+const end = performance.now();
+
+if (import.meta.server) {
+    console.log(`[SSR] ${label} END ${Math.round(end)}ms took ${Math.round(end - start)}ms`);
+}
+
 const footerBlock = computed(() => data.value?.FooterBlock?.items?.[0] ?? null);
 
 // General content area, for link lists and text lists

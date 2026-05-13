@@ -22,6 +22,7 @@ defineProps<{
             <h3 v-if="page.PreambleProp" class="site-page-partial__preamble heading-small">
                 {{ page.PreambleProp }}
             </h3>
+            <!-- Currenty triggers a warning in Vue Router for non-existant location, safe to ignore. -->
             <NuxtLink
                 v-if="page?._metadata?.url?.default"
                 :to="page._metadata.url.default"

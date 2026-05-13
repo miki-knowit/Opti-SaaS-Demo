@@ -12,6 +12,8 @@ export async function runGraphQuery<TData, TVariables>(
 ) {
     const config = useRuntimeConfig();
 
+    const start = performance.now();
+
     const response = await $fetch<GraphResponse<TData>>(config.optimizelyGraphUrl, {
         method: 'POST',
         headers: {
@@ -22,6 +24,8 @@ export async function runGraphQuery<TData, TVariables>(
             variables,
         },
     });
+
+    console.log(`Optimizely Graph request took ${Math.round(performance.now() - start)}ms`);
 
     if (response.errors?.length) {
         throw createError({
