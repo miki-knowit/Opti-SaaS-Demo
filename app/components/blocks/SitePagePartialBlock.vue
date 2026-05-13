@@ -15,13 +15,17 @@ defineProps<{
                 :src="page.ImageProp.url.default"
                 :alt="page.HeaderProp ?? ''"
             />
-            <h1 v-if="page.HeaderProp" class="site-page-partial__heading heading-large">
-                {{ page.HeaderProp }}
-            </h1>
 
-            <h3 v-if="page.PreambleProp" class="site-page-partial__preamble heading-small">
-                {{ page.PreambleProp }}
-            </h3>
+            <div class="site-page-partial__header-container">
+                <h1 v-if="page.HeaderProp" class="site-page-partial__heading heading-large">
+                    {{ page.HeaderProp }}
+                </h1>
+
+                <h3 v-if="page.PreambleProp" class="site-page-partial__preamble heading-small">
+                    {{ page.PreambleProp }}
+                </h3>
+            </div>
+
             <!-- Currenty triggers a warning in Vue Router for non-existant location, safe to ignore. -->
             <NuxtLink
                 v-if="page?._metadata?.url?.default"
@@ -55,6 +59,16 @@ defineProps<{
         &:hover {
             transform: translateX(4px);
         }
+    }
+
+    &__header-container {
+        max-width: 476px;
+    }
+
+    &__heading,
+    &__preamble {
+        max-width: 100%;
+        text-wrap: balance;
     }
 }
 </style>
