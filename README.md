@@ -15,6 +15,7 @@ This project is intended as a demo application to be used by developers within K
 - [Updating CMS Content and Types](#updating-and-adding-new-content-in-the-cms)
 - [Data Flow](#data-flow)
 - [Project Structure](#project-structure)
+- [Global Styling and Overriding Styles](#global-styling-and-overriding-styles)
 
 </details>
 
@@ -116,4 +117,41 @@ api/ Nuxt server routes used by the frontend
 utils/ Shared server-side utilities, including Optimizely Graph access
 
 public/* Public static assets (icons, fonts, images - assets that are not requested from the CMS)
+```
+
+## Global Styling and Overriding Styles
+
+To reduce repeated component-level styling and stay consistent with the design team's style guide (_source: Figma ~ spring 2026_), common HTML elements are mapped globally to predefined styles.
+
+Overriding styles _can_ be done on a component-level, but should be considered carefully.
+
+```
+<style scoped lang="scss">
+{ ... }
+</style>
+```
+
+For example, `h1` applies the same style as `.heading-xl`.
+
+```scss
+h1,
+.heading-xl {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-heading-xl);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--margin-bottom-heading-general);
+}
+```
+
+`p` elements apply the `base`-style.
+
+```scss
+p,
+.base {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base);
+}
 ```
