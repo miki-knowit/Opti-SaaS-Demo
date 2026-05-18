@@ -32,9 +32,8 @@ defineProps<{
             </div>
 
             <div class="image-and-text-block__column--text-container">
-                <h3 class="heading-large" v-if="block.HeadingProp">{{ block.HeadingProp }}</h3>
+                <h2 v-if="block.HeadingProp">{{ block.HeadingProp }}</h2>
                 <div
-                    class="base"
                     v-if="block.TextBlock?.TextProp?.html"
                     v-html="block.TextBlock.TextProp.html"
                 />
@@ -43,7 +42,7 @@ defineProps<{
     </article>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .image-and-text-block {
     width: 100%;
 }
@@ -68,11 +67,7 @@ defineProps<{
 }
 
 .image-and-text-block__image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--site-page-partial-border-radius);
+    border-radius: var(--border-radius-medium);
 }
 
 .image-and-text-block__column--text-container {

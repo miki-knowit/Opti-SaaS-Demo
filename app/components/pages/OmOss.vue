@@ -32,11 +32,12 @@ if (import.meta.client) {
 
 <template>
     <main class="common-page">
+        <!-- Current page instead of page header, TODO: decide on design -->
         <section class="common-page__hero">
             <div v-if="status === 'pending' && !commonPage">Loading page...</div>
             <div v-else-if="error && !commonPage">Failed to load page.</div>
             <div class="common-page__text">
-                <h1 class="heading-xl">{{ commonPage?.HeaderProp }}</h1>
+                <h1>{{ commonPage?.HeaderProp }}</h1>
                 <p class="base-large">{{ commonPage?.PreambleProp }}</p>
             </div>
 
@@ -53,30 +54,27 @@ if (import.meta.client) {
 </template>
 
 <style scoped lang="scss">
-/** TODO: should not be grid */
 .common-page {
     &__hero {
+        display: flex;
         background-color: var(--palette-color-pink-80);
         min-height: 70svh;
         padding: 14rem 5.6rem 7.2rem;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(280px, 520px);
         align-items: center;
         gap: var(--section-gap-normal);
     }
 
     &__text {
-        max-width: 720px;
+        display: flex;
+        flex-direction: column;
+        max-width: 550px;
     }
 
     &__image {
+        margin-left: auto;
         width: 100%;
         max-width: 520px;
-        aspect-ratio: 4 / 3;
-        height: auto;
-        object-fit: cover;
         border-radius: var(--border-radius-medium);
-        justify-self: end;
     }
 }
 </style>

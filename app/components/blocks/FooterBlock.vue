@@ -39,7 +39,7 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
             </figure>
         </div>
 
-        <div v-if="footerGeneralBlocks.length" class="footer__general-list base">
+        <div v-if="footerGeneralBlocks.length" class="footer__general-list">
             <ul>
                 <li
                     v-for="(general, generalIndex) in footerGeneralBlocks"
@@ -47,12 +47,9 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
                 >
                     <!-- two templates to preserve order from the content area -->
                     <template v-if="general?.__typename === 'FooterLinksGeneralBlock'">
-                        <h3
-                            v-if="general?.LinkListHeader"
-                            class="footer__general-header heading-xs"
-                        >
+                        <h5 v-if="general?.LinkListHeader" class="footer__general-header">
                             {{ general.LinkListHeader }}
-                        </h3>
+                        </h5>
 
                         <ul v-if="general?.LinkList?.length">
                             <li
@@ -67,9 +64,9 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
                     </template>
 
                     <template v-else-if="general?.__typename === 'FooterTextGeneralBlock'">
-                        <h3 v-if="general.TextListHeader" class="footer__general-header heading-xs">
+                        <h5 v-if="general.TextListHeader" class="footer__general-header">
                             {{ general.TextListHeader }}
-                        </h3>
+                        </h5>
 
                         <ul v-if="general.ContentAreaForTextRows?.length">
                             <li
@@ -85,10 +82,10 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
             </ul>
         </div>
 
-        <div v-if="footerSocials.length" class="footer__social-list base">
-            <h3 v-if="socialsHeader" class="footer__socials-header base-large">
+        <div v-if="footerSocials.length" class="footer__social-list">
+            <h5 v-if="socialsHeader" class="footer__socials-header">
                 {{ socialsHeader }}
-            </h3>
+            </h5>
             <ul>
                 <li
                     v-for="(item, itemIndex) in footerSocials"
@@ -105,18 +102,13 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
 <style lang="scss" scoped>
 .footer {
     display: flex;
-    padding: 64px 160px;
     flex-direction: column;
+    padding: 64px 160px;
     align-items: flex-start;
     gap: var(--spacing-xs);
     align-self: stretch;
     background-color: var(--palette-color-black-100);
-
-    & ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
+    color: var(--palette-color-white-100);
 
     &__logos {
         order: 4;
@@ -139,7 +131,7 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
         > ul {
             display: flex;
             flex-direction: row;
-            gap: var(--spacing-lg);
+            gap: var(--spacing-large);
         }
 
         > ul > li {
@@ -147,9 +139,6 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
             flex-direction: column;
             flex: 1;
             gap: var(--spacing-xxs);
-            color: var(
-                --palette-color-white-100
-            ); // text is not styled on a default level (color, e.g. adress & kontakt)
         }
     }
 
@@ -163,28 +152,17 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
         > ul {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-lg);
+            gap: var(--spacing-xxs);
         }
 
         > ul > li {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: var(--spacing-xs); // does not align with figma value (12px)
-            color: white; // TODO: should be set by default (among other variables)
-        }
-
-        p {
-            margin: 0;
+            gap: var(--spacing-xs);
         }
     }
 
-    &__general-header,
-    &__socials-header {
-        color: white;
-    }
-
-    // Override necessary because img globals screw up layout
     &__icon {
         width: 1.3rem;
         height: 1.3rem;

@@ -26,12 +26,12 @@ defineProps<{
 
         <div class="page-header__text-container-wrapper">
             <div class="page-header__text-container">
-                <h1 v-if="pageHeader.Header" class="page-header__heading heading-xl">
+                <h1 v-if="pageHeader.Header" class="page-header__heading">
                     {{ pageHeader.Header }}
                 </h1>
-                <h3 v-if="pageHeader.Preamble" class="page-header__preamble base-large">
+                <p v-if="pageHeader.Preamble" class="page-header__preamble base-large">
                     {{ pageHeader.Preamble }}
-                </h3>
+                </p>
                 <button v-if="pageHeader?.CTALink?.text" class="page-header__button">
                     {{ pageHeader.CTALink.text }}
                 </button>
@@ -40,7 +40,7 @@ defineProps<{
     </header>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .page-header {
     &--start-page {
         position: relative;

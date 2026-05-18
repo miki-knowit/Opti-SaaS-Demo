@@ -30,11 +30,9 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
 
 <template>
     <header class="header">
-        <figure class="header__logo" v-if="headerBlock?.Logo?.url?.default">
-            <NuxtLink to="/">
-                <img :src="headerBlock.Logo.url.default" alt="Site logo" />
-            </NuxtLink>
-        </figure>
+        <NuxtLink class="header__logo" v-if="headerBlock?.Logo?.url?.default" to="/">
+            <img :src="headerBlock.Logo.url.default" alt="Site logo" />
+        </NuxtLink>
 
         <button
             class="header__menu-toggle"
@@ -66,16 +64,13 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
     </header>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .header {
-    background: transparent;
     width: 100%;
     display: grid;
     grid-template-columns: minmax(120px, 1fr) auto minmax(120px, 1fr);
     align-items: center;
-    column-gap: var(--spacing-md, 32px);
-    padding: var(--spacing-small, 24px) 56px;
-    box-sizing: border-box;
+    padding: var(--spacing-small) 5.6rem;
     top: 0;
     left: 0;
     z-index: 10;
@@ -89,20 +84,8 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
 
     &__logo {
         grid-column: 1;
-        display: flex;
-        width: 120px;
         height: 43px;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
         aspect-ratio: 120/43;
-        margin: 0;
-
-        img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
 
         @media (max-width: 1023px) {
             grid-column: 1;
@@ -113,23 +96,14 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
         grid-column: 3;
         justify-self: end;
         display: none;
-        color: var(--palette-color-black-100);
 
         @media (max-width: 1023px) {
             grid-column: 2;
             position: relative;
             z-index: 12;
             display: inline-flex;
-            width: 44px;
-            height: 44px;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
             gap: 5px;
-            padding: 0;
-            border: 0;
-            background: transparent;
-            cursor: pointer;
         }
     }
 
@@ -137,11 +111,11 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
         display: block;
         width: 24px;
         height: 2px;
-        background: currentColor;
+        background-color: var(--palette-color-black-100);
     }
 
     &__nav {
-        font-family: var(--font-family-base);
+        font-family: var(--font-family-menu);
         grid-column: 2;
         display: flex;
         justify-content: center;
@@ -180,9 +154,6 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
         justify-content: center;
         align-items: center;
         gap: var(--spacing-xl, 48px);
-        list-style: none;
-        margin: 0;
-        padding: 0;
 
         @media (max-width: 1023px) {
             width: 100%;
@@ -194,13 +165,10 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
     }
 
     &__nav-link {
-        color: var(--palette-color-black-100);
-        text-decoration: none;
-        font-size: 2rem;
-        font-weight: 400;
+        color: var(--text-icon-dark);
 
         @media (max-width: 1023px) {
-            font-size: 1.5rem;
+            color: var(--text-icon-light);
         }
     }
 }

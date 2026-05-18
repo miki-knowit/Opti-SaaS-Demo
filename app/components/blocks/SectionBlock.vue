@@ -33,21 +33,17 @@ const isTrueSitePagePartialLayout = computed(() => {
     </section>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .section {
     padding-left: 96px;
     padding-right: 96px;
     margin: 5rem 5rem;
 
-    &__content {
-        display: block;
-    }
-
     &__content--site-page-partials {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+        justify-content: center;
         gap: var(--section-gap-normal);
-        align-items: flex-start;
     }
 }
 </style>

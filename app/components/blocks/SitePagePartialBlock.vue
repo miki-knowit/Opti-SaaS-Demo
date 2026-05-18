@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
     <article class="site-page-partial">
-        <div class="site-page-partial--partial__content">
+        <div class="site-page-partial__content">
             <img
                 v-if="page.ImageProp?.url?.default"
                 class="site-page-partial__image"
@@ -17,13 +17,13 @@ defineProps<{
             />
 
             <div class="site-page-partial__header-container">
-                <h1 v-if="page.HeaderProp" class="site-page-partial__heading heading-large">
+                <h4 v-if="page.HeaderProp" class="site-page-partial__heading">
                     {{ page.HeaderProp }}
-                </h1>
+                </h4>
 
-                <h3 v-if="page.PreambleProp" class="site-page-partial__preamble heading-small">
+                <p v-if="page.PreambleProp" class="site-page-partial__preamble">
                     {{ page.PreambleProp }}
-                </h3>
+                </p>
             </div>
 
             <!-- Currenty triggers a warning in Vue Router for non-existant location, safe to ignore. -->
@@ -42,12 +42,12 @@ defineProps<{
     </article>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .site-page-partial {
     &__image {
-        border-radius: 75px;
-        height: 400px;
-        width: 476px;
+        border-radius: var(--site-page-partial-border-radius);
+        height: 245px;
+        width: 400px;
     }
 
     &--arrow-icon {
