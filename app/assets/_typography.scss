@@ -42,6 +42,7 @@
     --margin-bottom-heading-general: 8px;
 }
 /** headings */
+h1,
 .heading-xl {
     font-family: var(--font-family-heading);
     font-size: var(--font-size-heading-xl);
@@ -50,6 +51,7 @@
     margin-bottom: var(--margin-bottom-heading-general);
 }
 
+h2,
 .heading-large {
     font-family: var(--font-family-heading);
     font-size: var(--font-size-heading-large);
@@ -58,6 +60,7 @@
     margin-bottom: var(--margin-bottom-heading-large);
 }
 
+h3,
 .heading-medium {
     font-family: var(--font-family-heading);
     font-size: var(--font-size-heading-medium);
@@ -66,6 +69,7 @@
     margin-bottom: var(--margin-bottom-heading-general);
 }
 
+h4,
 .heading-small {
     font-family: var(--font-family-heading);
     font-size: var(--font-size-heading-small);
@@ -74,6 +78,8 @@
     margin-bottom: var(--margin-bottom-heading-general);
 }
 
+h5,
+h6,
 .heading-xs {
     font-family: var(--font-family-heading);
     font-size: var(--font-size-heading-xs);
@@ -96,6 +102,10 @@
     line-height: var(--line-height-base-general);
 }
 
+// ul & ol elements here is a decision by me, see list specific styling in _lists.scss
+p,
+ul,
+ol,
 .base {
     font-family: var(--font-family-base);
     font-size: var(--font-size-base);
@@ -131,6 +141,7 @@
     line-height: var(--line-height-base-general);
 }
 
+// TODO: Need to import font family Replica Std for the Menu fonts
 .menu1 {
     font-family: var(--font-family-menu);
     font-size: var(--font-size-menu1);
@@ -152,10 +163,6 @@
     line-height: var(--line-height-menu);
 }
 
-/**
-codex suggests woff(n) instead of truetype as suggested in framework
-How do I declare medium vs regular? - not necessary, because browser accepts the 300 and 500 font weights set by me?
-*/
 @font-face {
     font-family: 'Bagoss';
     src:

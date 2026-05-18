@@ -1,0 +1,11 @@
+// List styles, my own decision
+ul,
+ol {
+    color: var(--palette-color-white-100);
+}
+
+li {
+    color: inherit;
+    font: inherit;
+    list-style: none;
+}
