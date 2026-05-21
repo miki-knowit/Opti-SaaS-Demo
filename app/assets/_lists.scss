@@ -1,11 +1,12 @@
 // List styles, my own decision
 ul,
-ol {
-    color: var(--palette-color-white-100);
+ol,
+li {
+    // color: var(--palette-color-white-100);
+    color: inherit;
+    font: inherit;
 }
 
 li {
-    color: inherit;
-    font: inherit;
     list-style: none;
 }

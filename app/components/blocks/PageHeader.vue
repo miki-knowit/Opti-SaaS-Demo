@@ -24,70 +24,60 @@ defineProps<{
             <img :src="pageHeader.Image.url.default" alt="Graphic Element Gradient" />
         </div>
 
-        <div class="page-header__text-container-wrapper">
-            <div class="page-header__text-container">
-                <h1 v-if="pageHeader.Header" class="page-header__heading">
-                    {{ pageHeader.Header }}
-                </h1>
-                <p v-if="pageHeader.Preamble" class="page-header__preamble base-large">
-                    {{ pageHeader.Preamble }}
-                </p>
-                <button v-if="pageHeader?.CTALink?.text" class="page-header__button">
-                    {{ pageHeader.CTALink.text }}
-                </button>
-            </div>
+        <div class="page-header__text-container">
+            <h1 v-if="pageHeader.Header" class="page-header__heading">
+                {{ pageHeader.Header }}
+            </h1>
+            <p v-if="pageHeader.Preamble" class="page-header__preamble base-large">
+                {{ pageHeader.Preamble }}
+            </p>
+            <button v-if="pageHeader?.CTALink?.text" class="page-header__button">
+                <span>{{ pageHeader.CTALink.text }}</span>
+            </button>
         </div>
     </header>
 </template>
 
 <style lang="scss" scoped>
+@use '../../assets/breakpoints' as *;
+
 .page-header {
     &--start-page {
         position: relative;
         overflow: hidden;
-        min-height: 100svh;
         width: 100vw;
+
+        @media (max-width: $sm) {
+            min-height: 95svh;
+        }
     }
-    &__text-container-wrapper {
+    &__text-container {
         position: relative;
-        height: 100%;
         display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding-top: 15rem;
-        padding-left: 2rem;
-        margin-left: 40px;
-        color: var(--text-icon-dark, #0b0b26);
         flex-direction: column;
+        padding: 20rem 0 15rem 6rem;
+        gap: var(--spacing-small);
         z-index: 1;
+        text-wrap: balance;
     }
 
-    &__heading {
-        max-width: 700px; // from figma mock-up
-    }
-
+    &__heading,
     &__preamble {
-        max-width: 720px; // from figma mock-up
+        max-width: 720px;
     }
 
     &__button {
         display: flex;
-        padding: var(--button-spacing-top-bottom, 16px) var(--button-spacing-left-right, 32px);
         justify-content: center;
         align-items: center;
-        gap: var(--spacing-xxs, 8px);
         width: 178px;
         height: 58px;
-        cursor: pointer;
-        border-radius: var(--button-border-radius, 32px);
-        background: var(--button-primary-accent-background, #372bc5);
-        color: var(--button-primary-accent-text, #fefbe6);
-
-        font-family: var(--font-family-base);
-        font-size: var(--font-size-base);
+        border-radius: var(--button-small-border-radius);
+        background: var(--button-primary-accent-background);
+        color: var(--button-primary-accent-text);
 
         &:hover {
-            background: #372bc5cc;
+            background: var(--button-primary-accent-hover-background);
         }
     }
 
@@ -97,10 +87,7 @@ defineProps<{
         z-index: 0;
     }
     &__media-container img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        // height: 880px;
+        height: 100%;
         object-fit: cover;
     }
 }
