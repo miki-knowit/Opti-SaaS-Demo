@@ -17,21 +17,16 @@ defineProps<{
     <article class="section__item image-and-text-block">
         <div
             class="image-and-text-block__content"
-            :class="{
-                'image-and-text-block__content--image-right': block.PlaceImageRight,
-                'image-and-text-block__content--image-left': !block.PlaceImageRight,
-            }"
+            :class="{ 'image-and-text-block__content--image-right': block.PlaceImageRight }"
         >
-            <div class="image-and-text-block__column--image">
-                <img
-                    class="image-and-text-block__image"
-                    v-if="block.ImageBlock?.ImageProp?.url?.default"
-                    :src="block.ImageBlock.ImageProp.url.default"
-                    :alt="block.ImageBlock?.HeadingProp || block.HeadingProp || ''"
-                />
-            </div>
+            <img
+                v-if="block.ImageBlock?.ImageProp?.url?.default"
+                class="image-and-text-block__image"
+                :src="block.ImageBlock.ImageProp.url.default"
+                :alt="block.ImageBlock?.HeadingProp || block.HeadingProp || ''"
+            />
 
-            <div class="image-and-text-block__column--text-container">
+            <div class="image-and-text-block__text">
                 <h2 v-if="block.HeadingProp">{{ block.HeadingProp }}</h2>
                 <div
                     v-if="block.TextBlock?.TextProp?.html"
@@ -43,39 +38,39 @@ defineProps<{
 </template>
 
 <style lang="scss" scoped>
+@use '~/assets/scss/breakpoints' as *;
+
 .image-and-text-block {
-    width: 100%;
-}
+    &__content {
+        display: flex;
+    }
 
-.image-and-text-block__content {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-}
+    &__content--image-right {
+        flex-direction: row-reverse;
+    }
 
-.image-and-text-block__content--image-right {
-    flex-direction: row-reverse;
-}
+    &__image,
+    &__text {
+        flex: 1 1 0;
+    }
 
-.image-and-text-block__column--image,
-.image-and-text-block__column--text-container {
-    flex: 1 1 0;
-}
+    &__image {
+        object-fit: cover;
+        border-radius: var(--border-radius-medium);
+    }
 
-.image-and-text-block__column--image {
-    min-height: 468px;
-}
+    &__text {
+        justify-content: center;
+        gap: var(--spacing-small);
+        padding: var(--spacing-small) var(--section-gap-normal);
+    }
 
-.image-and-text-block__image {
-    border-radius: var(--border-radius-medium);
-}
-
-.image-and-text-block__column--text-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: var(--spacing-small);
-    padding: var(--spacing-small) var(--section-gap-normal);
+    /* Mobile screens and up to 576px */
+    @media (max-width: $sm) {
+        &__content {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
 </style>
