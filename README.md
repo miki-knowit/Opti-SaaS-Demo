@@ -5,8 +5,7 @@ Demo application built with Nuxt.js, TypeScript and GraphQL (via Optimizely Grap
 This is first and foremost a PoC, not a finalized production architecture.
 This project is intended as a demo application to be used by developers within Knowit Experience, to demonstrate the general functionality of an application using the SaaS version of the Optimizely CMS. Content is fetched with GraphQL as the query language and Nuxt handles the routing & rendering of Vue components.
 
-  <details>
-  <summary>Table of Contents</summary>
+# Table of Contents
 
 - [Current Limitations](#current-limitations)
 - [Tech Stack](#tech-stack)
@@ -17,12 +16,14 @@ This project is intended as a demo application to be used by developers within K
 - [Project Structure](#project-structure)
 - [Global Styling and Overriding Styles](#global-styling-and-overriding-styles)
 
-</details>
-
 ## Current Limitations
 
 - `CommonPage` currently does not use the shared `PageHeader` component like `StartPage` does. The `/en/om-oss` page renders its header, preamble, image and hero background directly in `OmOss.vue`.
 - Some components (e.g. `FooterBlock.vue`) have a lot of scoped styling, which is _not_ desired. It is temporary styling to simulate the Figma sketches.
+- Some styling (e.g. flex properties have hard coded height/width values) from Figma have been disregarded to make a responsive design possible...
+    - response design is _not_ applied to all pages and components yet.
+- Vue router warns that `/en/start` is not found, this is due to the path for the startpage being `/` in Optimizely which does not result in `/en/start` in the Nuxt routing.
+- Responsive design needs work, it is not polished.
 
 ## Tech Stack
 
@@ -106,7 +107,7 @@ app/graphql/
 
 ```
 app/
-assets/ Global styling, SCSS
+assets/scss/ Global styling, SCSS
 components/ Vue components for CMS pages and blocks respectively
 components/utils Helper functions
 graphql/ GraphQL documents and generated TypeScript types
@@ -121,9 +122,11 @@ public/* Public static assets (icons, fonts, images - assets that are not reques
 
 ## Global Styling and Overriding Styles
 
-To reduce repeated component-level styling and stay consistent with the design team's style guide (_source: Figma ~ spring 2026_), common HTML elements are mapped globally to predefined styles.
+Global styling (`app/assets/scss/`) comes from Figma, Styleguide Ramverket ~ spring 2026. When possible, values have been preserved and restructured into the `assets` folder as partials which are then used in `main.scss` or on a component-level (e.g. `breakpoints` in `SectionBlock.vue`).
 
-Overriding styles _can_ be done on a component-level, but should be considered carefully.
+To reduce repeated component-level styling and stay consistent with the design team's style guide, common HTML elements are mapped globally to predefined styles.
+
+Overriding styles has been done on a component-level to satisfy actual browser-behavior and user preference, but should be considered carefully when modified as to not stray too far from the style guide.
 
 ```
 <style scoped lang="scss">
@@ -131,7 +134,7 @@ Overriding styles _can_ be done on a component-level, but should be considered c
 </style>
 ```
 
-For example, `h1` applies the same style as `.heading-xl`.
+For example, `h1` apply the `.heading-xl` style.
 
 ```scss
 h1,
@@ -141,17 +144,5 @@ h1,
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-heading);
     margin-bottom: var(--margin-bottom-heading-general);
-}
-```
-
-`p` elements apply the `base`-style.
-
-```scss
-p,
-.base {
-    font-family: var(--font-family-base);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-base);
 }
 ```
