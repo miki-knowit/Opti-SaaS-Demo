@@ -34,16 +34,16 @@ const isTrueSitePagePartialLayout = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '~/assets/scss/breakpoints' as *;
+@use '@scss/breakpoints' as *;
 
 .section {
-    padding-left: 96px;
-    padding-right: 96px;
+    padding-left: 9.6rem;
+    padding-right: 9.6rem;
     margin: 5rem 5rem;
 
     &__content--site-page-partials {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+        grid-template-columns: repeat(auto-fit, minmax(32rem, 40rem));
         justify-content: center;
         gap: var(--section-gap-normal);
     }

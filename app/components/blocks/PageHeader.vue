@@ -39,7 +39,7 @@ defineProps<{
 </template>
 
 <style lang="scss" scoped>
-@use '~/assets/scss/breakpoints' as *;
+@use '@scss/breakpoints' as *;
 
 .page-header {
     &--start-page {
@@ -63,19 +63,19 @@ defineProps<{
 
     &__heading,
     &__preamble {
-        max-width: 720px;
+        max-width: 72rem;
     }
 
     &__button {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 178px;
-        height: 58px;
+        width: 17.8rem;
+        height: 5.8rem;
         border-radius: var(--button-small-border-radius);
         background: var(--button-primary-accent-background);
         color: var(--button-primary-accent-text);
-        border: 1px solid var(--button-primary-accent-background);
+        border: 0.1rem solid var(--button-primary-accent-background);
 
         &:hover {
             background: var(--button-primary-accent-hover-background);

@@ -7,14 +7,6 @@ const { data, status, error } = await useFetch<OmOssQuery>('/api/om-oss');
 
 const commonPage = computed(() => data.value?.CommonPage?.items?.[0] ?? null);
 const contentArea = computed(() => commonPage.value?.ContentAreaProp ?? []);
-
-if (import.meta.server) {
-    console.log(`[SSR] / Om oss-page fetch took ${Math.round(end - start)}ms`);
-}
-
-if (import.meta.client) {
-    console.log(`[Client] / Om oss-page fetch took ${Math.round(end - start)}ms`);
-}
 </script>
 
 <template>
@@ -53,13 +45,13 @@ if (import.meta.client) {
     &__text {
         display: flex;
         flex-direction: column;
-        max-width: 550px;
+        max-width: 55rem;
     }
 
     &__image {
         margin-left: auto;
         width: 100%;
-        max-width: 520px;
+        max-width: 52rem;
         border-radius: var(--border-radius-medium);
     }
 }

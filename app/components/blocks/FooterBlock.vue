@@ -64,7 +64,6 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
                                 :key="textIndex"
                             >
                                 <p>{{ text?.TextRow }}</p>
-                                <!-- TS warns for type safety here... really messy solution to check for typesafety with === operator-->
                             </li>
                         </ul>
                     </template>
@@ -93,7 +92,7 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
 .footer {
     display: flex;
     flex-direction: column;
-    padding: 64px 160px;
+    padding: 6.4rem 16rem;
     align-items: flex-start;
     gap: var(--spacing-xs);
     align-self: stretch;
@@ -111,7 +110,7 @@ const socialsHeader = computed(() => footerBlock.value?.SocialsHeader ?? null);
     &__divider {
         order: 3;
         width: 100%;
-        height: 2px;
+        height: 0.2rem;
         background-color: var(--palette-color-white-100);
     }
 

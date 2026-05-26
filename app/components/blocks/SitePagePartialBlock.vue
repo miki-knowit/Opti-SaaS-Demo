@@ -46,23 +46,23 @@ defineProps<{
 .site-page-partial {
     &__image {
         border-radius: var(--site-page-partial-border-radius);
-        height: 245px;
-        width: 400px;
+        height: 24.5rem;
+        width: 40rem;
     }
 
     &--arrow-icon {
         display: inline-flex;
-        width: 32px;
-        height: 32px;
+        width: 3.2rem;
+        height: 3.2rem;
         transition: transform 0.15s ease-in-out;
 
         &:hover {
-            transform: translateX(4px);
+            transform: translateX(0.4rem);
         }
     }
 
     &__header-container {
-        max-width: 476px;
+        max-width: 47.6rem;
     }
 
     &__heading,

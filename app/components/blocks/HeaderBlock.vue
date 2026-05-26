@@ -27,7 +27,7 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
             type="button"
             :aria-expanded="isOpen"
             aria-controls="site-navigation"
-            :aria-label="isOpen ? 'Stäng meny' : 'Öppna meny'"
+            :aria-label="isOpen ? 'Close menu' : 'Open menu'"
             @click="toggleMenu"
         >
             <span class="header__menu-line" aria-hidden="true" />
@@ -53,31 +53,29 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
 </template>
 
 <style lang="scss" scoped>
+@use '@scss/breakpoints' as *;
+
 .header {
     width: 100%;
     display: grid;
-    grid-template-columns: minmax(120px, 1fr) auto minmax(120px, 1fr);
+    grid-template-columns: minmax(12rem, 1fr) auto minmax(12rem, 1fr);
     align-items: center;
-    padding: var(--spacing-small) 5.6rem;
+    padding: var(--spacing-small) var(--spacing-xl);
     top: 0;
     left: 0;
     z-index: 10;
     position: absolute;
 
-    @media (max-width: 1023px) {
+    @media (max-width: $lg) {
         grid-template-columns: auto auto;
         justify-content: space-between;
-        padding: 16px 24px;
+        padding: 1.6rem 2.4rem;
     }
 
     &__logo {
         grid-column: 1;
-        height: 43px;
+        height: 4.3rem;
         aspect-ratio: 120/43;
-
-        @media (max-width: 1023px) {
-            grid-column: 1;
-        }
     }
 
     &__menu-toggle {
@@ -85,43 +83,39 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
         justify-self: end;
         display: none;
 
-        @media (max-width: 1023px) {
+        @media (max-width: $lg) {
             grid-column: 2;
             position: relative;
             z-index: 12;
             display: inline-flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 0.5rem;
         }
     }
 
     &__menu-line {
         display: block;
-        width: 24px;
-        height: 2px;
+        width: 2.4rem;
+        height: 0.2rem;
         background-color: var(--palette-color-black-100);
     }
 
     &__nav {
-        font-family: var(--font-family-menu);
         grid-column: 2;
         display: flex;
         justify-content: center;
-        align-items: center;
-        min-width: 0;
 
-        @media (max-width: 1023px) {
+        @media (max-width: $lg) {
             position: fixed;
-            color: #fefbe6;
+            color: var(--palette-color-white-100);
             top: 0;
             right: 0;
             bottom: 0;
             z-index: 11;
-            width: min(82vw, 320px);
+            width: min(82vw, 32rem);
             align-items: flex-start;
-            justify-content: flex-start;
-            padding: 96px 32px 32px;
-            background: #372bc5;
+            padding: 9.6rem 3.2rem 3.2rem;
+            background: var(--palette-color-blue-100);
             transform: translateX(100%);
             visibility: hidden;
             pointer-events: none;
@@ -139,23 +133,18 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
 
     &__nav-links {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: var(--spacing-xl, 48px);
+        gap: var(--spacing-xl);
 
-        @media (max-width: 1023px) {
+        @media (max-width: $lg) {
             width: 100%;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            gap: var(--spacing-md, 32px);
         }
     }
 
     &__nav-link {
         color: var(--text-icon-dark);
 
-        @media (max-width: 1023px) {
+        @media (max-width: $lg) {
             color: var(--text-icon-light);
         }
     }
