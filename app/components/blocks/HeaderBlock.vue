@@ -11,20 +11,8 @@ function closeMenu() {
     isOpen.value = false;
 }
 
-const label = 'header';
-const start = performance.now();
-
-if (import.meta.server) {
-    console.log(`[SSR] ${label} START ${Math.round(start)}ms`);
-}
-
 const { data } = await useFetch<HeaderBlockQuery>('/api/header-block');
 
-const end = performance.now();
-
-if (import.meta.server) {
-    console.log(`[SSR] ${label} END ${Math.round(end)}ms took ${Math.round(end - start)}ms`);
-}
 const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
 </script>
 
@@ -48,7 +36,7 @@ const headerBlock = computed(() => data.value?.HeaderBlock?.items?.[0] ?? null);
         </button>
 
         <nav id="site-navigation" class="header__nav" :class="{ 'header__nav--open': isOpen }">
-            <ul class="header__nav-links">
+            <ul class="header__nav-links menu2">
                 <li v-for="(link, index) in headerBlock?.NavLinks" :key="index">
                     <NuxtLink
                         v-if="link?.url?.default"

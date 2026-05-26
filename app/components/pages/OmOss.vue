@@ -3,20 +3,7 @@ import { computed } from 'vue';
 import type { OmOssQuery } from '~/graphql/generated';
 import ContentAreaRenderer from '../utils/ContentAreaRenderer.vue';
 
-const label = 'Om oss';
-const start = performance.now();
-
-if (import.meta.server) {
-    console.log(`[SSR] ${label} START ${Math.round(start)}ms`);
-}
-
 const { data, status, error } = await useFetch<OmOssQuery>('/api/om-oss');
-
-const end = performance.now();
-
-if (import.meta.server) {
-    console.log(`[SSR] ${label} END ${Math.round(end)}ms took ${Math.round(end - start)}ms`);
-}
 
 const commonPage = computed(() => data.value?.CommonPage?.items?.[0] ?? null);
 const contentArea = computed(() => commonPage.value?.ContentAreaProp ?? []);
@@ -32,7 +19,6 @@ if (import.meta.client) {
 
 <template>
     <main class="common-page">
-        <!-- Current page instead of page header, TODO: decide on design -->
         <section class="common-page__hero">
             <div v-if="status === 'pending' && !commonPage">Loading page...</div>
             <div v-else-if="error && !commonPage">Failed to load page.</div>
