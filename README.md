@@ -24,6 +24,10 @@ This project is intended as a demo application to be used by developers within K
     - response design is _not_ applied to all pages and components yet.
 - Vue router warns that `/en/start` is not found, this is due to the path for the startpage being `/` in Optimizely which does not result in `/en/start` in the Nuxt routing.
 - Responsive design needs work, it is not polished.
+- Global button classes should be added in the same way `_typography.scss` has predefined classes, e.g. heading-large, base-large, etc.
+    - borders around buttons (e.g. hover/focus) are not implemented globally.
+    - icons are missing for some buttons, specified in the file.
+    - button styling can be adopted from the SMMTF sites, where there might be applicable solutions.
 
 ## Tech Stack
 
