@@ -21,9 +21,10 @@ This project is intended as a demo application to be used by developers within K
 - `PageHeader` is currently only used by `StartPage`. `CommonPage` renders its hero/header directly in `OmOss.vue`; this should be unified when more common page templates are added.
 - Some components (e.g. `FooterBlock.vue`) have a lot of scoped styling, which is _not_ desired. It is temporary styling to simulate the Figma sketches.
 - Some styling (e.g. flex properties have hard coded height/width values) from Figma have been disregarded to make a responsive design possible...
-    - response design is _not_ applied to all pages and components yet.
+    - responsive design is _not_ applied to all pages and components yet.
 - Vue router warns that `/en/start` is not found, this is due to the path for the startpage being `/` in Optimizely which does not result in `/en/start` in the Nuxt routing.
-- Responsive design needs work, it is not polished.
+    - Routing needs to be considered, what is desirable.
+- Responsive design needs work, it is not polished (e.g. FooterBlock does not stack in mobile view).
 - Global button classes should be added in the same way `_typography.scss` has predefined classes, e.g. heading-large, base-large, etc.
     - borders around buttons (e.g. hover/focus) are not implemented globally.
     - icons are missing for some buttons, specified in the file.
