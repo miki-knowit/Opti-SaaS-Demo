@@ -18,7 +18,7 @@ This project is intended as a demo application to be used by developers within K
 
 ## Current Limitations
 
-- `CommonPage` currently does not use the shared `PageHeader` component like `StartPage` does. The `/en/om-oss` page renders its header, preamble, image and hero background directly in `OmOss.vue`.
+- `PageHeader` is currently only used by `StartPage`. `CommonPage` renders its hero/header directly in `OmOss.vue`; this should be unified when more common page templates are added.
 - Some components (e.g. `FooterBlock.vue`) have a lot of scoped styling, which is _not_ desired. It is temporary styling to simulate the Figma sketches.
 - Some styling (e.g. flex properties have hard coded height/width values) from Figma have been disregarded to make a responsive design possible...
     - response design is _not_ applied to all pages and components yet.

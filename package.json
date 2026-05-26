@@ -1,8 +1,7 @@
 {
-    "name": "Exjobb2026",
-    "version": "0.0.1",
+    "name": "Optimizely-SaaS-Demo-App",
+    "version": "0.9.9",
     "type": "module",
-    "private": true,
     "scripts": {
         "build": "nuxt build",
         "dev": "nuxt dev",

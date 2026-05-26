@@ -11,7 +11,7 @@ function readEnvFile(filePath: string): Record<string, string> {
 
     for (const line of fileContent.split(/\r?\n/)) {
         const trimmedLine = line.trim();
-
+ ..
         if (!trimmedLine || trimmedLine.startsWith('#')) {
             continue;
         }
