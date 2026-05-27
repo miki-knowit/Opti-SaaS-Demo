@@ -2,7 +2,6 @@
 
 Demo application built with Nuxt.js, TypeScript and GraphQL (via Optimizely Graph).
 
-This is first and foremost a PoC, not a finalized production architecture.
 This project is intended as a demo application to be used by developers within Knowit Experience, to demonstrate the general functionality of an application using the SaaS version of the Optimizely CMS. Content is fetched with GraphQL as the query language and Nuxt handles the routing & rendering of Vue components.
 
 # Table of Contents
@@ -18,13 +17,21 @@ This project is intended as a demo application to be used by developers within K
 
 ## Current Limitations
 
+#### General limitations and suggestions
+
 - `PageHeader` is currently only used by `StartPage`. `CommonPage` renders its hero/header directly in `OmOss.vue`; this should be unified when more common page templates are added.
 - Some components (e.g. `FooterBlock.vue`) have a lot of scoped styling, which is _not_ desired. It is temporary styling to simulate the Figma sketches.
-- Some styling (e.g. flex properties have hard coded height/width values) from Figma have been disregarded to make a responsive design possible...
-    - responsive design is _not_ applied to all pages and components yet.
 - Vue router warns that `/en/start` is not found, this is due to the path for the startpage being `/` in Optimizely which does not result in `/en/start` in the Nuxt routing.
     - Routing needs to be considered, what is desirable.
-- Responsive design needs work, it is not polished (e.g. FooterBlock does not stack in mobile view).
+
+#### Styling related limitations and suggestions
+
+- Some styling (e.g. flex properties have hard coded height/width values) from Figma have been disregarded to make a responsive design possible...
+    - responsive design is _not_ applied to all pages and components yet
+    - neither is it polished (e.g. FooterBlock does not stack in mobile view)
+    - navigation menu in mobile view needs polishing (active/hover behavior, animated hamburger menu, etc)
+- Styling may be simplified with the addition of mixins
+- Spacing variables could be reworked to be multiples (e.g. `--spacing-xs x 2` equals twice the spacing specified)
 - Global button classes should be added in the same way `_typography.scss` has predefined classes, e.g. heading-large, base-large, etc.
     - borders around buttons (e.g. hover/focus) are not implemented globally.
     - icons are missing for some buttons, specified in the file.
