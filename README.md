@@ -105,8 +105,8 @@ Vue components do not query Optimizely Graph directly. They fetch data through l
 ```txt
 Vue component
   -> /api/<endpoint>
-  -> server/utils/optimizely-graph.ts
   -> Optimizely Graph
+  -> Frontend components render the received payload
 ```
 
 GraphQL queries and generated TypeScript types live in:
